@@ -109,7 +109,6 @@ class Soaltryout extends BaseController
 
             }
 
-
             $data = [
                 'soaltryout' => $soaltryout,
                 'breadcrumb' => [
@@ -119,8 +118,6 @@ class Soaltryout extends BaseController
 
             $data['tryout'] = $this->tryoutModel();
 
-            dd($data);
-
             // multi option for jawaban_soal_ganda
             $options_jawaban_soal_ganda = ["-" => "Select Jawaban Soal Ganda", "a" => "Jawaban A", "b" => "Jawaban B", "c" => "Jawaban C", "d" => "Jawaban D"];
             $data['options_jawaban_soal_ganda'] = $options_jawaban_soal_ganda;
@@ -128,7 +125,6 @@ class Soaltryout extends BaseController
             if (!$this->validate([])) {
                 $data['validation'] = $this->validator;
             };
-
 
             echo view('Admin/Soaltryout/Edit', $data);
 
