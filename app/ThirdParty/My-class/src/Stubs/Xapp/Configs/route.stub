@@ -1,0 +1,14 @@
+<?php
+
+$routes->group('/{subdir}/{class_name}',[
+        // 'filter'=>['login'],
+        'namespace'=>'\App\Controllers\{subdir}'
+    ],function($routes){
+
+    $routes->get('/','{class_name}::index');
+    $routes->get('/New','{class_name}::new');
+    $routes->get('/Show/(:num)','{class_name}::show');
+    $routes->get('/Edit/(:num)','{class_name}::edit');
+    $routes->post('/Store','{class_name}::store');
+
+});

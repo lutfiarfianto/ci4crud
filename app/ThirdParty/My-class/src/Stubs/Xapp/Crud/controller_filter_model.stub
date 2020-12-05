@@ -1,0 +1,4 @@
+
+        if($table_filters->{fld}){
+            $this->{model}Model->where('{fld}',$table_filters->{fld});
+        };

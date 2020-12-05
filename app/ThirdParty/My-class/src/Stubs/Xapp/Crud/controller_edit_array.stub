@@ -1,0 +1,5 @@
+
+		// multi option for {fld}
+		$options_{fld} = {array};
+		$data['options_{fld}'] = $options_{fld};
+

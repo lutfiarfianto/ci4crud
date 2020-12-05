@@ -1,0 +1,9 @@
+<div class="input-group mb-3">
+  <div class="custom-file">
+    <?= form_upload({attributes}) ?>
+    <label class="custom-file-label" for="{fld}" >Choose file</label>
+  </div>
+  <div class="input-group-append">
+    <span class="input-group-text" data-src="{data_src}" >View</span>
+  </div>
+</div>

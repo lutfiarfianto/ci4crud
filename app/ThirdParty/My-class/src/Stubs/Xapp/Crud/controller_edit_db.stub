@@ -1,0 +1,13 @@
+
+		// multi option for {fld}
+		${ref_model}Model = new \App\Models\{ref_model}Model();
+		${ref_model}Model->orderBy('{value_fields} asc');
+		$rows = ${ref_model}Model->findAll();
+
+		$options_{fld} = [];
+		foreach($rows as $k=>$row){
+			$options_{fld}[$row->{key_fields}] = $row->{value_fields};
+		}
+
+		$data['options_{fld}'] = $options_{fld};
+

@@ -1,0 +1,354 @@
+{
+    "app": {
+        "class_name": "Jawabansoaltryout",
+        "table_name": "sp_jawaban_soal_tryout",
+        "title": "Jawaban Soal Tryout",
+        "subdir": "Admin",
+        "form": {
+            "layout": "horizontal",
+            "title": {
+                "new": "New Jawaban Soal Tryout",
+                "edit": "Edit Jawaban Soal Tryout",
+                "show": "View Jawaban Soal Tryout"
+            }
+        },
+        "table": {
+            "paging": 10,
+            "title": "List of Jawaban Soal Tryout",
+            "css": {
+                "table": "",
+                "thead": "thead-dark"
+            }
+        },
+        "server_side_validation": {
+            "siswa_id": "required"
+        },
+        "render": {
+            "controller": true,
+            "model": true,
+            "entity": true,
+            "view_index": true,
+            "view_index_filter": true,
+            "view_edit": true,
+            "view_show": true,
+            "route": true
+        }
+    },
+    "table": {
+        "id": {
+            "name": "id",
+            "type": "int",
+            "pk": true,
+            "form": {
+                "label": "Id",
+                "show": true,
+                "ordering": 0,
+                "stub": "hidden"
+            },
+            "form_attr": {
+                "name": "id",
+                "class": "form-control",
+                "type": "hidden",
+                "placeholder": "Id",
+                "required": true
+            },
+            "table": {
+                "caption": "Id",
+                "show": 1,
+                "ordering": 0,
+                "filter": 1
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Id"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "siswa_id": {
+            "name": "siswa_id",
+            "type": "int",
+            "pk": false,
+            "form": {
+                "label": "Siswa Id",
+                "show": true,
+                "ordering": 1,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "siswa_id",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Siswa Id",
+                "required": true
+            },
+            "table": {
+                "caption": "Siswa Id",
+                "show": 0,
+                "ordering": 1,
+                "filter": 1
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Siswa Id"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "judul_tryout_id": {
+            "name": "judul_tryout_id",
+            "type": "int",
+            "pk": false,
+            "form": {
+                "label": "Judul Tryout Id",
+                "show": true,
+                "ordering": 2,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "judul_tryout_id",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Judul Tryout Id",
+                "required": true
+            },
+            "table": {
+                "caption": "Judul Tryout Id",
+                "show": 0,
+                "ordering": 2,
+                "filter": 1
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Judul Tryout Id"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "lembar_tryout_id": {
+            "name": "lembar_tryout_id",
+            "type": "int",
+            "pk": false,
+            "form": {
+                "label": "Lembar Tryout Id",
+                "show": true,
+                "ordering": 3,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "lembar_tryout_id",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Lembar Tryout Id",
+                "required": true
+            },
+            "table": {
+                "caption": "Lembar Tryout Id",
+                "show": 0,
+                "ordering": 3,
+                "filter": 1
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Lembar Tryout Id"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "soal_tryout_id": {
+            "name": "soal_tryout_id",
+            "type": "int",
+            "pk": false,
+            "form": {
+                "label": "Soal Tryout Id",
+                "show": true,
+                "ordering": 4,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "soal_tryout_id",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Soal Tryout Id",
+                "required": true
+            },
+            "table": {
+                "caption": "Soal Tryout Id",
+                "show": 1,
+                "ordering": 4,
+                "filter": 1
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Soal Tryout Id"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "jawaban_pilihan": {
+            "name": "jawaban_pilihan",
+            "type": "varchar",
+            "pk": false,
+            "form": {
+                "label": "Jawaban Pilihan",
+                "show": true,
+                "ordering": 5,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "jawaban_pilihan",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Jawaban Pilihan",
+                "required": true
+            },
+            "table": {
+                "caption": "Jawaban Pilihan",
+                "show": 1,
+                "ordering": 5,
+                "filter": 1
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Jawaban Pilihan"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "skor_pilihan": {
+            "name": "skor_pilihan",
+            "type": "int",
+            "pk": false,
+            "form": {
+                "label": "Skor Pilihan",
+                "show": true,
+                "ordering": 6,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "skor_pilihan",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Skor Pilihan",
+                "required": true
+            },
+            "table": {
+                "caption": "Skor Pilihan",
+                "show": 1,
+                "ordering": 6,
+                "filter": 1
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Skor Pilihan"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "jawaban_esay": {
+            "name": "jawaban_esay",
+            "type": "text",
+            "pk": false,
+            "form": {
+                "label": "Jawaban Esay",
+                "show": true,
+                "ordering": 7,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "jawaban_esay",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Jawaban Esay",
+                "required": true
+            },
+            "table": {
+                "caption": "Jawaban Esay",
+                "show": 1,
+                "ordering": 7,
+                "filter": 1
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Jawaban Esay"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "skor_esay": {
+            "name": "skor_esay",
+            "type": "int",
+            "pk": false,
+            "form": {
+                "label": "Skor Esay",
+                "show": true,
+                "ordering": 8,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "skor_esay",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Skor Esay",
+                "required": true
+            },
+            "table": {
+                "caption": "Skor Esay",
+                "show": 1,
+                "ordering": 8,
+                "filter": 1
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Skor Esay"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        }
+    }
+}

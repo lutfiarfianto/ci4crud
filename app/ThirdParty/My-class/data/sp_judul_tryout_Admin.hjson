@@ -1,0 +1,269 @@
+{
+    "app": {
+        "class_name": "Tryout",
+        "table_name": "sp_judul_tryout",
+        "title": "Tryout",
+        "subdir": "Admin",
+        "form": {
+            "layout": "horizontal",
+            "title": {
+                "new": "New Tryout",
+                "edit": "Edit Tryout",
+                "show": "View Tryout"
+            }
+        },
+        "table": {
+            "paging": 10,
+            "title": "List of Tryout",
+            "css": {
+                "table": "",
+                "thead": "thead-dark"
+            }
+        },
+        "server_side_validation": {
+            "field": "required"
+        },
+        "render": {
+            "controller": true,
+            "model": true,
+            "entity": true,
+            "view_index": true,
+            "view_edit": true,
+            "view_show": true,
+            "route": true
+        }
+    },
+    "table": {
+        "id": {
+            "name": "id",
+            "type": "int",
+            "pk": true,
+            "form": {
+                "label": "Id",
+                "show": true,
+                "ordering": 0,
+                "stub": "hidden"
+            },
+            "form_attr": {
+                "name": "id",
+                "class": "form-control",
+                "type": "hidden",
+                "placeholder": "Id",
+                "required": true
+            },
+            "table": {
+                "caption": "Id",
+                "show": 1,
+                "ordering": 0
+            },
+            "data_source": {
+                "type": "",
+                "array": [],
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "judul_tryout": {
+            "name": "judul_tryout",
+            "type": "varchar",
+            "pk": false,
+            "form": {
+                "label": "Judul Tryout",
+                "show": true,
+                "ordering": 1,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "judul_tryout",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Judul Tryout",
+                "required": true
+            },
+            "table": {
+                "caption": "Judul Tryout",
+                "show": 1,
+                "ordering": 1
+            },
+            "data_source": {
+                "type": "",
+                "array": [],
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "waktu_tryout": {
+            "name": "waktu_tryout",
+            "type": "int",
+            "pk": false,
+            "form": {
+                "label": "Waktu Tryout",
+                "show": true,
+                "ordering": 2,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "waktu_tryout",
+                "class": "form-control",
+                "type": "number",
+                "placeholder": "Waktu Tryout",
+                "required": true
+            },
+            "table": {
+                "caption": "Waktu Tryout",
+                "show": 0,
+                "ordering": 2
+            },
+            "data_source": {
+                "type": "",
+                "array": [],
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "semester": {
+            "name": "semester",
+            "type": "int",
+            "pk": false,
+            "form": {
+                "label": "Semester",
+                "show": true,
+                "ordering": 3,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "semester",
+                "class": "form-control",
+                "type": "number",
+                "placeholder": "Semester",
+                "required": true
+            },
+            "table": {
+                "caption": "Semester",
+                "show": 0,
+                "ordering": 3
+            },
+            "data_source": {
+                "type": "",
+                "array": [],
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "mata_kuliah_id": {
+            "name": "mata_kuliah_id",
+            "type": "int",
+            "pk": false,
+            "form": {
+                "label": "Mata Kuliah",
+                "show": true,
+                "ordering": 4,
+                "stub": "dropdown"
+            },
+            "form_attr": {
+                "name": "mata_kuliah_id",
+                "class": "form-control",
+                "type": "select",
+                "placeholder": "Mata Kuliah",
+                "required": true
+            },
+            "table": {
+                "caption": "Mata Kuliah",
+                "show": 0,
+                "ordering": 4
+            },
+            "data_source": {
+                "type": "db",
+                "array": [],
+                "db": {
+                    "ref_model": "matakuliah",
+                    "key_fields": "id",
+                    "value_fields": "nama_mata_kuliah"
+                }
+            }
+        },
+        "status_tryout": {
+            "name": "status_tryout",
+            "type": "varchar",
+            "pk": false,
+            "form": {
+                "label": "Status Tryout",
+                "show": true,
+                "ordering": 5,
+                "stub": "dropdown"
+            },
+            "form_attr": {
+                "name": "status_tryout",
+                "class": "form-control",
+                "type": "select",
+                "placeholder": "Status Tryout",
+                "required": true
+            },
+            "table": {
+                "caption": "Status Tryout",
+                "show": 0,
+                "ordering": 5
+            },
+            "data_source": {
+                "type": "array",
+                "array": {
+                    "0": "Draft",
+                    "2": "Arsip",
+                    "1": "Publikasi"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "tipe_tryout": {
+            "name": "tipe_tryout",
+            "type": "varchar",
+            "pk": false,
+            "form": {
+                "label": "Tipe Tryout",
+                "show": true,
+                "ordering": 6,
+                "stub": "dropdown"
+            },
+            "form_attr": {
+                "name": "tipe_tryout",
+                "class": "form-control",
+                "type": "select",
+                "placeholder": "Tipe Tryout",
+                "required": true
+            },
+            "table": {
+                "caption": "Tipe Tryout",
+                "show": 0,
+                "ordering": 6
+            },
+            "data_source": {
+                "type": "array",
+                "array": {
+                    "ganda":"Pilihan Ganda",
+                    "esai": "Esay",
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        }
+    }
+}

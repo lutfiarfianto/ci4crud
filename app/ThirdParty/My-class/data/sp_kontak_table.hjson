@@ -1,0 +1,143 @@
+{
+    "app": {
+        "title": "Sp Kontak",
+        "subdir": "",
+        "form": {
+            "layout": "horizontal",
+            "title": {
+                "new": "New Sp Kontak",
+                "edit": "Edit Sp Kontak"
+            }
+        },
+        "table": {
+            "paging": 10,
+            "title": "List of Sp Kontak"
+        }
+    },
+    "table": {
+        "id": {
+            "name": "id",
+            "type": "int",
+            "pk": true,
+            "form": {
+                "label": "Id",
+                "show": true,
+                "ordering": 0,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "id",
+                "class": "form-control",
+                "type": "hidden",
+                "placeholder": "Id",
+                "required": true
+            },
+            "table": {
+                "caption": "Id",
+                "show": 1,
+                "ordering": 0
+            },
+            "data_source": {
+                "array": [],
+                "db": {
+                    "table": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "nama_kontak": {
+            "name": "nama_kontak",
+            "type": "varchar",
+            "pk": false,
+            "form": {
+                "label": "Nama Kontak",
+                "show": true,
+                "ordering": 1,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "nama_kontak",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Nama Kontak",
+                "required": true
+            },
+            "table": {
+                "caption": "Nama Kontak",
+                "show": 1,
+                "ordering": 1
+            },
+            "data_source": {
+                "array": [],
+                "db": {
+                    "table": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "no_hp": {
+            "name": "no_hp",
+            "type": "varchar",
+            "pk": false,
+            "form": {
+                "label": "No Hp",
+                "show": true,
+                "ordering": 2,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "no_hp",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "No Hp",
+                "required": true
+            },
+            "table": {
+                "caption": "No Hp",
+                "show": 1,
+                "ordering": 2
+            },
+            "data_source": {
+                "array": [],
+                "db": {
+                    "table": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "email": {
+            "name": "email",
+            "type": "varchar",
+            "pk": false,
+            "form": {
+                "label": "Email",
+                "show": true,
+                "ordering": 3,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "email",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Email",
+                "required": true
+            },
+            "table": {
+                "caption": "Email",
+                "show": 1,
+                "ordering": 3
+            },
+            "data_source": {
+                "array": [],
+                "db": {
+                    "table": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        }
+    }
+}

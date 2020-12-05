@@ -1,0 +1,7 @@
+
+      // render db-txt from table filter {fld}
+      if($table_filters->{fld}){
+        ${ref_model} = ${ref_model}Model->find( $table_filters->{fld} );
+        if(isset(${ref_model}->{value_fields}))
+            $table_filters_txt->{key_fields} = ${ref_model}->{value_fields};
+      }

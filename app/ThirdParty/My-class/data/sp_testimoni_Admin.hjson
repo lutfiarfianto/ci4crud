@@ -1,0 +1,250 @@
+{
+    "app": {
+        "class_name": "Testimoni",
+        "table_name": "sp_testimoni",
+        "title": "Testimoni",
+        "subdir": "Admin",
+        "form": {
+            "layout": "horizontal",
+            "title": {
+                "new": "New Testimoni",
+                "edit": "Edit Testimoni",
+                "show": "View Testimoni"
+            }
+        },
+        "table": {
+            "paging": 10,
+            "title": "List of Testimoni",
+            "css": {
+                "table": "",
+                "thead": "thead-dark"
+            }
+        },
+        "server_side_validation": {
+            "testimoni": "required"
+        },
+        "render": {
+            "controller": true,
+            "model": true,
+            "entity": true,
+            "view_index": true,
+            "view_index_filter": true,
+            "view_edit": true,
+            "view_show": true,
+            "route": true
+        }
+    },
+    "table": {
+        "id": {
+            "name": "id",
+            "type": "int",
+            "pk": true,
+            "table": {
+                "caption": "Id",
+                "show": 1,
+                "ordering": 0,
+                "filter": 1
+            },
+            "form": {
+                "label": "Id",
+                "show": true,
+                "ordering": 0,
+                "stub": "hidden"
+            },
+            "form_attr": {
+                "name": "id",
+                "class": "form-control",
+                "type": "hidden",
+                "placeholder": "Id",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Id"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "user_id": {
+            "name": "user_id",
+            "type": "int",
+            "pk": false,
+            "table": {
+                "caption": "User",
+                "show": 1,
+                "ordering": 1,
+                "filter": 1
+            },
+            "form": {
+                "label": "User",
+                "show": true,
+                "ordering": 1,
+                "stub": "dropdown"
+            },
+            "form_attr": {
+                "name": "user_id",
+                "class": "form-control",
+                "type": "select",
+                "placeholder": "User Id",
+            },
+            "data_source": {
+                "type": "db",
+                "array": {
+                    "*": "Select User Id"
+                },
+                "db": {
+                    "ref_model": "user",
+                    "key_fields": "id",
+                    "value_fields": "email"
+                }
+            }
+        },
+        "testimoni": {
+            "name": "testimoni",
+            "type": "text",
+            "pk": false,
+            "table": {
+                "caption": "Testimoni",
+                "show": 1,
+                "ordering": 2,
+                "filter": 1
+            },
+            "form": {
+                "label": "Testimoni",
+                "show": true,
+                "ordering": 2,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "testimoni",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Testimoni",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Testimoni"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "saran": {
+            "name": "saran",
+            "type": "text",
+            "pk": false,
+            "table": {
+                "caption": "Saran",
+                "show": 0,
+                "ordering": 3,
+                "filter": 1
+            },
+            "form": {
+                "label": "Saran",
+                "show": true,
+                "ordering": 3,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "saran",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Saran",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Saran"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "kritik": {
+            "name": "kritik",
+            "type": "text",
+            "pk": false,
+            "table": {
+                "caption": "Kritik",
+                "show": 0,
+                "ordering": 4,
+                "filter": 1
+            },
+            "form": {
+                "label": "Kritik",
+                "show": true,
+                "ordering": 4,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "kritik",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Kritik",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Kritik"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "post_status": {
+            "name": "post_status",
+            "type": "varchar",
+            "pk": false,
+            "table": {
+                "caption": "Post Status",
+                "show": 0,
+                "ordering": 5,
+                "filter": 1
+            },
+            "form": {
+                "label": "Post Status",
+                "show": true,
+                "ordering": 5,
+                "stub": "dropdown"
+            },
+            "form_attr": {
+                "name": "post_status",
+                "class": "form-control",
+                "type": "select",
+                "placeholder": "Post Status",
+            },
+            "data_source": {
+                "type": "array",
+                "array": {
+                    "draft": "Draft",
+                    "publikasi": "Publikasi",
+                    "arsip": "Arsip",
+
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+    }
+}

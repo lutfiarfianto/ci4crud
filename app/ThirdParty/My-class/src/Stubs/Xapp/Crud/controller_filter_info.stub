@@ -1,0 +1,4 @@
+
+      if($table_filters->{fld}){
+          $filter_info['{fld}'] => '<span class="badge badge-primary">{label} = '. $table_filters->{fld}.'</span>';
+      };

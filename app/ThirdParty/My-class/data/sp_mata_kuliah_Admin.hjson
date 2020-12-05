@@ -1,0 +1,144 @@
+{
+    "app": {
+        "class_name": "Matakuliah",
+        "table_name": "sp_mata_kuliah",
+        "title": "Mata Kuliah",
+        "subdir": "Admin",
+        "form": {
+            "layout": "horizontal",
+            "title": {
+                "new": "New Mata Kuliah",
+                "edit": "Edit Mata Kuliah",
+                "show": "View Mata Kuliah"
+            }
+        },
+        "table": {
+            "paging": 10,
+            "title": "List of Mata Kuliah",
+            "css": {
+                "table": "",
+                "thead": "thead-dark"
+            }
+        },
+        "server_side_validation": {
+            "nama_mata_kuliah": "required"
+        },
+        "render": {
+            "controller": true,
+            "model": true,
+            "entity": true,
+            "view_index": true,
+            "view_index_filter": true,
+            "view_edit": true,
+            "view_show": true,
+            "route": true
+        }
+    },
+    "table": {
+        "id": {
+            "name": "id",
+            "type": "int",
+            "pk": true,
+            "form": {
+                "label": "Id",
+                "show": true,
+                "ordering": 0,
+                "stub": "hidden"
+            },
+            "form_attr": {
+                "name": "id",
+                "class": "form-control",
+                "type": "hidden",
+                "placeholder": "Id",
+                "required": true
+            },
+            "table": {
+                "caption": "Id",
+                "show": 0,
+                "ordering": 0,
+                "filter": 1
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Id"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "nama_mata_kuliah": {
+            "name": "nama_mata_kuliah",
+            "type": "varchar",
+            "pk": false,
+            "form": {
+                "label": "Nama Mata Kuliah",
+                "show": true,
+                "ordering": 1,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "nama_mata_kuliah",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Nama Mata Kuliah",
+                "required": true
+            },
+            "table": {
+                "caption": "Nama Mata Kuliah",
+                "show": 1,
+                "ordering": 1,
+                "filter": 1
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Nama Mata Kuliah"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "uraian": {
+            "name": "uraian",
+            "type": "varchar",
+            "pk": false,
+            "form": {
+                "label": "Uraian",
+                "show": true,
+                "ordering": 2,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "uraian",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Uraian",
+                "required": true
+            },
+            "table": {
+                "caption": "Uraian",
+                "show": 0,
+                "ordering": 2,
+                "filter": 1
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Uraian"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        }
+    }
+}

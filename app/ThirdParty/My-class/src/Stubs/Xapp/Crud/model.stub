@@ -1,0 +1,30 @@
+<?php 
+
+namespace App\Models;
+
+use CodeIgniter\Model;
+use App\Models\BaseModel;
+
+class {class_name}Model extends BaseModel
+{
+    protected $table      = '{table_name}';
+    protected $primaryKey = 'id';
+
+    protected $returnType     = 'App\Entities\{class_name}';
+    protected $useSoftDeletes = true;
+
+    protected $allowedFields = {allowed_fields};
+
+    protected $validationRules    = [];
+    protected $validationMessages = [];
+    protected $skipValidation     = false;
+
+
+	
+
+
+
+}
+
+/* End of file KontakModel.php */
+/* Location: ./app/Controllers/Admin/KontakModel.php */

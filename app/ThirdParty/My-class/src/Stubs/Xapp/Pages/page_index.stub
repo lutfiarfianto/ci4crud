@@ -1,0 +1,31 @@
+<?=$this->extend('Layout\{subdir}\Main')?>
+
+<?=$this->section('content')?>
+
+<div class="card">
+
+  <div class="card-body">
+
+    <div class="d-flex justify-content-between mb-2">
+      <div>
+        <?= $filter_info ?>
+      </div>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary margin-5" data-toggle="modal" data-target="#index_filter">
+            <i class="fas fa-search    "></i> Filter
+        </button>
+        <a href="<?= site_url('{subdir}/{class_name}/new') ?>" class="btn btn-success"><i
+            class="fas fa-plus-circle    "></i> New</a>
+      </div>
+    </div>
+
+    <?= $this->include('{subdir}/{class_name}/index_filter')?>
+
+    {table_content}
+
+  </div>
+
+</div>
+
+
+<?=$this->endSection()?>

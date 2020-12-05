@@ -1,0 +1,207 @@
+<?php
+
+namespace App\Controllers\{subdir};
+
+use App\Controllers\BaseController;
+
+class {class_name} extends BaseController
+{
+
+    public function __construct()
+    {
+
+        $this->{model}Model = new \App\Models\{class_name}Model();
+
+    }
+
+
+    public function filter(){
+
+        $this->index();
+
+    }
+
+    public function index()
+    {
+
+        // ** if you want to build query manually, refer to CI4 query builder **
+        // $this->{model}Model->select('*, {table_name}.id ', FALSE );
+
+        $table_filters = (object) {field_filter};
+
+        foreach($table_filters as $field =>& $value){
+            $value = refine_var($this->request->getGet($field));
+        };
+
+        {filter_model}
+
+        $this->{model}Model->orderBy('{table_name}.id desc');
+        $rows = $this->{model}Model->paginate({paginate});
+
+        $data = [
+            'rows'       => $rows,
+            'pager'      => $this->{model}Model->pager,
+            'breadcrumb' => [
+                'title' => '{table_title}',
+            ],
+            'per_page'    => {paginate},
+            'filter_info' => implode("\n", $filter_info ),
+            'table_filter' => $table_filters,
+        ];
+
+        {edit_data_ref}
+
+
+        $filter_label = {filter_label};
+        $filter_info = [];
+
+        $table_filters_txt = (object) [];
+
+        {table_filter_txt}
+
+        {noparse}
+        foreach ($filter_label as $fld => $label) 
+        {
+            if (!$table_filters->$fld) 
+                continue;
+            
+            $filter_info[$fld] = '<span class="badge badge-primary">' . $label . ' = ' . (isset($table_filters_txt->$fld)?$table_filters_txt->$fld:$table_filters->$fld) . '</span>';
+            
+        }
+        {/noparse}
+
+
+        echo view('{subdir}/{class_name}/Index', $data);
+
+    }
+
+    public function show($id = null)
+    {
+
+        try {
+
+            ${model} = $this->{model}Model->find($id);
+
+            $data = [
+                '{model}' => ${model},
+                'breadcrumb' => [
+                    'title' => '{form_show_title}',
+                ],
+            ];
+
+            echo view('{subdir}/{class_name}/Show', $data);
+
+        } catch (\Exception $e) {
+            die($e->getMessage());
+        }
+
+    }
+
+    public function edit($id = null){
+
+        try {
+
+            ${model} = null;
+
+            if (!$id && old('id')) {
+
+                ${model} = $this->{model}Model->getOld();
+
+            } else {
+
+                ${model} = $this->{model}Model->find($id);
+
+            }
+
+            $data = [
+                '{model}' => ${model},
+                'breadcrumb' => [
+                    'title' => '{form_edit_title}',
+                ],
+            ];
+
+            {edit_data_ref}
+
+
+            if (!$this->validate([])) {
+                $data['validation'] = $this->validator;
+            };
+
+            echo view('{subdir}/{class_name}/Edit', $data);
+
+        } catch (\Exception $e) {
+            die($e->getMessage());
+        }
+
+    }
+
+    function new () {
+
+        try {
+
+            ${model} = new \App\Entities\{class_name}();
+
+            $data = [
+                '{model}' => ${model},
+                'breadcrumb' => [
+                    'title' => '{form_new_title}',
+                ],
+            ];
+
+            {edit_data_ref}
+
+            echo view('{subdir}/{class_name}/Edit', $data);
+
+        } catch (\Exception $e) {
+            die($e->getMessage());
+        }
+
+    }
+
+    public function store()
+    {
+
+        $request = service('request');
+
+        // setting rules
+        $rules = {validation_rules};
+
+        if (!$this->validate($rules)) {
+
+            return redirect()->to('edit/')->withInput()->with('errors', service('validation')->getErrors());
+
+        }
+
+        // post request
+        $post_data = $request->getPost();
+
+        ${model}_store = new \App\Entities\{class_name}($post_data);
+
+        if (!$this->{model}Model->save(${model}_store)) {
+
+            return redirect()->back()->withInput()->with('errors', $this->{model}Model->errors());
+        }
+
+        return redirect()->to('/{subdir}/{class_name}')->with('message', 'success');
+
+    }
+
+    public function delete()
+    {
+
+        $request = service('request');
+
+        // post request
+        $post_data = $request->getPost('id');
+
+        $this->{model}Model->delete($post_data);
+
+        return redirect()->to('/{subdir}/{class_name}')->with('message', 'success');
+
+    }
+
+}
+
+/* End of file {class_name}.php */
+/* Location: ./app/Controllers/{subdir}/{class_name}.php */
+

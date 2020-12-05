@@ -1,0 +1,164 @@
+{
+    "app": {
+        "class_name": "Kontak",
+        "table_name": "sp_kontak",
+        "title": "Kontak",
+        "subdir": "Admin",
+        "form": {
+            "layout": "horizontal",
+            "title": {
+                "new": "New Kontak",
+                "edit": "Edit Kontak",
+                "show": "View Kontak",
+            }
+        },
+        "table": {
+            "paging": 10,
+            "title": "List of Kontak",
+            "css" : {
+                "table": "",
+                "thead": "thead-dark",
+            },
+        },
+        "server_side_validation": {
+            "nama_kontak": "required",
+            "email": "required",
+        },
+        "render": {
+            "controller": true,
+            "model": true,
+            "entity": true,
+            "view": {
+                "index": true,
+                "show": true,
+                "edit": true
+            },
+            "route": true
+        }
+    },
+    "table": {
+        "id": {
+            "name": "id",
+            "type": "int",
+            "pk": true,
+            "form": {
+                "label": "Id",
+                "show": true,
+                "ordering": 0,
+                "stub": "hidden"
+            },
+            "form_attr": {
+                "name": "id",
+                "class": "form-control",
+                "type": "hidden",
+                "placeholder": "Id",
+                "required": true
+            },
+            "table": {
+                "caption": "Id",
+                "show": 0,
+                "ordering": 0
+            },
+            "data_source": {
+                "array": [],
+                "db": {
+                    "table": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "nama_kontak": {
+            "name": "nama_kontak",
+            "type": "varchar",
+            "pk": false,
+            "form": {
+                "label": "Nama Kontak",
+                "show": true,
+                "ordering": 4,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "nama_kontak",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Nama Kontak",
+                "required": true
+            },
+            "table": {
+                "caption": "Nama Kontak",
+                "show": 1,
+                "ordering": 1
+            },
+            "data_source": {
+                "array": [],
+                "db": {
+                    "table": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "no_hp": {
+            "name": "no_hp",
+            "type": "varchar",
+            "pk": false,
+            "form": {
+                "label": "No Hp",
+                "show": false,
+                "ordering": 2,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "no_hp",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "No Hp",
+            },
+            "table": {
+                "caption": "No Hp",
+                "show": 0,
+                "ordering": 2
+            },
+            "data_source": {
+                "array": [],
+                "db": {
+                    "table": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "email": {
+            "name": "email",
+            "type": "varchar",
+            "pk": false,
+            "form": {
+                "label": "Email",
+                "show": true,
+                "ordering": 1,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "email",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Email",
+                "required": true
+            },
+            "table": {
+                "caption": "Email",
+                "show": 1,
+                "ordering": 3
+            },
+            "data_source": {
+                "array": [],
+                "db": {
+                    "table": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        }
+    }
+}

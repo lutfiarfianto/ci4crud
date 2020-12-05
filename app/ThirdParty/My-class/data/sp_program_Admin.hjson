@@ -1,0 +1,144 @@
+{
+    "app": {
+        "class_name": "Program",
+        "table_name": "sp_program",
+        "title": "Program",
+        "subdir": "Admin",
+        "form": {
+            "layout": "horizontal",
+            "title": {
+                "new": "New Program",
+                "edit": "Edit Program",
+                "show": "View Program"
+            }
+        },
+        "table": {
+            "paging": 10,
+            "title": "List of Program",
+            "css": {
+                "table": "",
+                "thead": "thead-dark"
+            }
+        },
+        "server_side_validation": {
+            "nama_program": "required"
+        },
+        "render": {
+            "controller": true,
+            "model": true,
+            "entity": true,
+            "view_index": true,
+            "view_index_filter": true,
+            "view_edit": true,
+            "view_show": true,
+            "route": true
+        }
+    },
+    "table": {
+        "id": {
+            "name": "id",
+            "type": "int",
+            "pk": true,
+            "table": {
+                "caption": "Id",
+                "show": 0,
+                "ordering": 0,
+                "filter": 1
+            },
+            "form": {
+                "label": "Id",
+                "show": true,
+                "ordering": 0,
+                "stub": "hidden"
+            },
+            "form_attr": {
+                "name": "id",
+                "class": "form-control",
+                "type": "hidden",
+                "placeholder": "Id",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Id"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "nama_program": {
+            "name": "nama_program",
+            "type": "varchar",
+            "pk": false,
+            "table": {
+                "caption": "Nama Program",
+                "show": 1,
+                "ordering": 1,
+                "filter": 1
+            },
+            "form": {
+                "label": "Nama Program",
+                "show": true,
+                "ordering": 1,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "nama_program",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Nama Program",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Nama Program"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "uraian": {
+            "name": "uraian",
+            "type": "varchar",
+            "pk": false,
+            "table": {
+                "caption": "Uraian",
+                "show": 0,
+                "ordering": 2,
+                "filter": 1
+            },
+            "form": {
+                "label": "Uraian",
+                "show": true,
+                "ordering": 2,
+                "stub": "textarea"
+            },
+            "form_attr": {
+                "name": "uraian",
+                "class": "form-control",
+                "type": "text",
+                "rows": 3,
+                "placeholder": "Uraian",
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Uraian"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        }
+    }
+}
