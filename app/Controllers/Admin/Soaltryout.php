@@ -109,11 +109,15 @@ class Soaltryout extends BaseController
 
             }
 
+
+
             $data = [
                 'soaltryout' => $soaltryout,
                 'breadcrumb' => [
                     'title' => 'Edit Soal Tryout',
                 ],
+                'addon_css' => $this->apply_asset(['magnific-popup'],'css'),
+                'addon_js'  => $this->apply_asset(['magnific-popup'],'js'),
             ];
 
             $data['tryout'] = $this->tryoutModel();
@@ -180,6 +184,25 @@ class Soaltryout extends BaseController
 
         // post request
         $post_data = $request->getPost();
+
+        $files = $request->getFiles();
+
+        foreach ($files as $file_field => $file) {
+            
+            if(!preg_match('/^image/i',$file->getClientMimeType()))
+                continue;
+
+            $date_bridge = date('Ym');
+
+            if($file->isValid() && !$file->hasMoved()){
+                $new_name = $file->getRandomName();
+                mk_path(WRITEPATH.'uploads', $date_bridge);
+                $file->move(WRITEPATH.'uploads/' . $date_bridge, $new_name);
+            }
+
+            $post_data[$file_field] = $date_bridge.'/'.$new_name;
+
+        }
 
         $soaltryout_store = new \App\Entities\Soaltryout($post_data);
 

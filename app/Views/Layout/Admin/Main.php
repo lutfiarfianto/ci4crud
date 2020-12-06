@@ -16,6 +16,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>/assets/images/favicon.png">
     <!-- Custom CSS -->
     <link href="<?= base_url() ?>/dist/css/style.min.css" rel="stylesheet">
+
+    <?= isset($addon_css)?$addon_css:null ?>
+
     <link href="<?= base_url() ?>/dist/css/custom.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -103,8 +106,12 @@
     <script src="<?= base_url() ?>/dist/js/waves.js"></script>
     <!--Menu sidebar -->
     <script src="<?= base_url() ?>/dist/js/sidebarmenu.js"></script>
+    <!-- Add On Script -->
+    <?= isset($addon_js)?$addon_js:null ?>
+
     <!--Custom JavaScript -->
-    <script src="<?= base_url() ?>/dist/js/custom.min.js"></script>
+    <script src="<?= base_url() ?>/dist/js/custom.js"></script>
+
 </body>
 
 </html>

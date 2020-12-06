@@ -41,9 +41,52 @@ class BaseController extends Controller
 		//--------------------------------------------------------------------
 		// E.g.:
 		// $this->session = \Config\Services::session();
+        $this->parser = \Config\Services::parser();
 
 		// $this->loadHelpers('auth');
 		helper(['auth','uri','form','url','filesystem','myview','myhashids']);
+
+	}
+
+	public function apply_asset(Array $asset_aliases, $type='css')
+	{
+
+		$str_stub = [
+			'css' => '<link href="{file}" rel="stylesheet">',
+			'js'  => '<script src="{file}"></script>',
+		];
+
+		$collection = [];
+
+		foreach ($asset_aliases as $key => $alias) {
+
+			$_alias = config('Asset')->$type[$alias];
+
+			if(is_array($_alias)){
+				foreach ($_alias as $j => $file) {
+
+					$data['file'] = base_url($file);
+
+					$collection[] = $this->parser
+						->setData($data)
+						->renderString($str_stub[$type]);
+				}
+			}
+
+			if(is_string($_alias)){
+				$data['file'] = base_url($_alias);
+
+				$collection[] = $this->parser
+					->setData($data)
+					->renderString($str_stub[$type]);
+
+			}
+			
+		}
+
+		$tcollection = implode("\n\t",$collection);
+
+		return $tcollection;
 
 	}
 

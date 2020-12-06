@@ -4,6 +4,6 @@
     <label class="custom-file-label" for="{fld}" >Choose file</label>
   </div>
   <div class="input-group-append">
-    <span class="input-group-text" data-src="{data_src}" >View</span>
+    <span class="input-group-text" data-src="<?= ${model]->{fld} ?>" >View</span>
   </div>
 </div>

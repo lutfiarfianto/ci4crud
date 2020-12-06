@@ -1,0 +1,24 @@
+
+        /* upload handler */
+        $files = $request->getFiles();
+
+        foreach ($files as $file_field => $file) {
+            
+            {noparse}if {/noparse}(!preg_match('/{mime_type}/i',$file->getClientMimeType()))
+                continue;
+
+            if(!preg_math('/{file_ext}/i',$file->getClientExtension()))
+                continue;
+
+            $date_bridge = id_encode(date('Ym'));
+
+            if($file->isValid() && !$file->hasMoved()){
+                $new_name = $file->getRandomName();
+                mk_path(WRITEPATH.'{media_path}', $date_bridge);
+                $file->move(WRITEPATH.'{media_path}/' . $date_bridge, $new_name);
+            }
+
+            $post_data[$file_field] = $date_bridge.'/'.$new_name;
+
+        }
+

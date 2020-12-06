@@ -175,6 +175,8 @@ class {class_name} extends BaseController
         // post request
         $post_data = $request->getPost();
 
+        {upload_handler}
+
         ${model}_store = new \App\Entities\{class_name}($post_data);
 
         if (!$this->{model}Model->save(${model}_store)) {

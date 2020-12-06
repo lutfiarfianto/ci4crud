@@ -23,6 +23,11 @@
         "server_side_validation": {
             "soal": "required"
         },
+        'upload' : {
+            'mime_type'  : '^image',
+            'file_ext'   : '(jpg|jpeg|png)',
+            'media_path' : 'uploads',
+        },
         "render": {
             "controller": true,
             "model": true,
@@ -54,7 +59,8 @@
             "table": {
                 "caption": "Id",
                 "show": 1,
-                "ordering": 0
+                "ordering": 0,
+                "filter" : false,
             },
             "data_source": {
                 "type": "",
@@ -89,7 +95,8 @@
             "table": {
                 "caption": "Soal",
                 "show": 1,
-                "ordering": 1
+                "ordering": 1,
+                "filter" : false,
             },
             "data_source": {
                 "type": "",
@@ -123,7 +130,8 @@
             "table": {
                 "caption": "Judul Tryout Id",
                 "show": 0,
-                "ordering": 2
+                "ordering": 2,
+                "filter" : false,
             },
             "data_source": {
                 "type": "",
@@ -157,7 +165,8 @@
             "table": {
                 "caption": "No Soal",
                 "show": 0,
-                "ordering": 3
+                "ordering": 3,
+                "filter" : false,
             },
             "data_source": {
                 "type": "",
@@ -190,7 +199,8 @@
             "table": {
                 "caption": "Gambar Soal",
                 "show": 0,
-                "ordering": 4
+                "ordering": 4,
+                "filter" : false,
             },
             "data_source": {
                 "type": "",
@@ -223,7 +233,8 @@
             "table": {
                 "caption": "Jawaban A",
                 "show": 0,
-                "ordering": 5
+                "ordering": 5,
+                "filter" : false,
             },
             "data_source": {
                 "type": "",
@@ -257,7 +268,8 @@
             "table": {
                 "caption": "Jawaban B",
                 "show": 0,
-                "ordering": 6
+                "ordering": 6,
+                "filter" : false,
             },
             "data_source": {
                 "type": "",
@@ -291,7 +303,8 @@
             "table": {
                 "caption": "Jawaban C",
                 "show": 0,
-                "ordering": 7
+                "ordering": 7,
+                "filter" : false,
             },
             "data_source": {
                 "type": "",
@@ -325,7 +338,8 @@
             "table": {
                 "caption": "Jawaban D",
                 "show": 0,
-                "ordering": 8
+                "ordering": 8,
+                "filter" : false,
             },
             "data_source": {
                 "type": "",
@@ -358,7 +372,8 @@
             "table": {
                 "caption": "Gambar A",
                 "show": 0,
-                "ordering": 9
+                "ordering": 9,
+                "filter" : false,
             },
             "data_source": {
                 "type": "",
@@ -391,7 +406,8 @@
             "table": {
                 "caption": "Gambar B",
                 "show": 0,
-                "ordering": 10
+                "ordering": 10,
+                "filter" : false,
             },
             "data_source": {
                 "type": "",
@@ -424,7 +440,8 @@
             "table": {
                 "caption": "Gambar C",
                 "show": 0,
-                "ordering": 11
+                "ordering": 11,
+                "filter" : false,
             },
             "data_source": {
                 "type": "",
@@ -457,7 +474,8 @@
             "table": {
                 "caption": "Gambar D",
                 "show": 0,
-                "ordering": 12
+                "ordering": 12,
+                "filter" : false,
             },
             "data_source": {
                 "type": "",
@@ -490,7 +508,8 @@
             "table": {
                 "caption": "Jawaban Soal Ganda",
                 "show": 0,
-                "ordering": 13
+                "ordering": 13,
+                "filter" : false,
             },
             "data_source": {
                 "type": "array",
@@ -528,7 +547,8 @@
             "table": {
                 "caption": "Jawaban Soal Esay",
                 "show": 0,
-                "ordering": 14
+                "ordering": 14,
+                "filter" : false,
             },
             "data_source": {
                 "type": "",
@@ -562,7 +582,8 @@
             "table": {
                 "caption": "Pembahasan Jawaban",
                 "show": 0,
-                "ordering": 15
+                "ordering": 15,
+                "filter" : false,
             },
             "data_source": {
                 "type": "",
@@ -595,7 +616,8 @@
             "table": {
                 "caption": "Gambar Pembahasan Jawaban",
                 "show": 0,
-                "ordering": 16
+                "ordering": 16,
+                "filter" : false,
             },
             "data_source": {
                 "type": "",

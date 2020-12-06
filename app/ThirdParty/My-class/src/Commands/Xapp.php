@@ -234,14 +234,16 @@ class Xapp extends BaseCommand
         $form_attr   = $this->extractTable('form_attr', $config);
 
         $form_inputs = (object) [];
+        $model = strtolower($config->app->class_name);
 
         foreach ($form_config as $fld => $form_meta) {
-            $form_attr->$fld->value = '$'.strtolower($config->app->class_name).'->'.$fld;
+            $form_attr->$fld->value = '$'.$model.'->'.$fld;
             if(in_array($form_meta->stub,['dropdown'])){
                 $form_attr->$fld->options = '$options_'.$fld;
                 $form_attr->$fld->selected = $form_attr->$fld->value;
             }
-            $data['fld']= $fld;
+            $data['fld']   = $fld;
+            $data['model'] = $model;
 
             $stub              = $this->stubPath('Forms/form_' . $form_meta->stub);
             $form_inputs->$fld = $this->renderFormType($stub, $form_attr->$fld, $data);
@@ -377,7 +379,7 @@ class Xapp extends BaseCommand
 
     public function renderController()
     {
-        $config = $this->config;
+        $config = $this->getConfig();
 
         $data_source  = $this->extractTable('data_source', $config);
 
@@ -407,7 +409,8 @@ class Xapp extends BaseCommand
         // filter model
         $table_metas      = $this->extractTable('table');
         $filter_models    = [];
-        $field_filters    = [];
+        $field_filter     = [];
+        $filter_label     = [];
         $filter_infos     = [];
         $filter_info_txts = [];
 
@@ -448,6 +451,32 @@ class Xapp extends BaseCommand
 
         }
 
+        // upload handler
+        $_has_upload = false;
+
+        $form_metas = $this->extractTable('form');
+
+        foreach ($form_metas as $fld => $form_meta) {
+            if($form_meta->stub=='upload' && !$_has_upload)
+                $_has_upload = true;
+                
+        }
+
+        $upload_handler  = null;
+
+        if($_has_upload){
+
+            $upload_stub = $this->stubPath('crud/controller_store_files');
+
+            $data = [
+                'mime_type'  => $config->app->upload->mime_type,
+                'file_ext'   => $config->app->upload->file_ext,
+                'media_path' => $config->app->upload->media_path,
+            ];
+            
+            $upload_handler = $this->renderStub($upload_stub,$data);
+
+        }
 
         $data = [
 
@@ -466,8 +495,10 @@ class Xapp extends BaseCommand
             'field_filter'     => $this->arrayStringify($field_filter),
             'filter_label'     => $this->arrayStringify($filter_label),
             'table_filter_txt' => implode("\n\n",$filter_info_txts),
+            'upload_handler'   => $upload_handler,
 
         ];
+
 
         $stub = $this->stubPath('Crud/controller');
 

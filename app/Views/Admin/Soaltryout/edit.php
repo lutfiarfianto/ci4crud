@@ -12,7 +12,7 @@
 
     <?= $this->include('Admin/Soaltryout/infotryout') ?>
 
-    <?= form_open(site_url('Admin/Soaltryout/store') ) ?>
+    <?= form_open_multipart(site_url('Admin/Soaltryout/store') ) ?>
 
     <?=csrf_field()?>
 
@@ -41,7 +41,7 @@
             <label class="custom-file-label" for="gambar_soal">Choose file</label>
           </div>
           <div class="input-group-append">
-            <span class="input-group-text" data-src="{data_src}">View</span>
+            <a class="input-group-text image-popup-vertical-fit" href="<?= base_url('uploads/'.$soaltryout->gambar_soal) ?>">View</a>
           </div>
         </div>
       </div>
@@ -86,7 +86,7 @@
             <label class="custom-file-label" for="gambar_a">Choose file</label>
           </div>
           <div class="input-group-append">
-            <span class="input-group-text" data-src="{data_src}">View</span>
+            <a class="input-group-text image-popup-vertical-fit" href="<?= base_url('uploads/'.$soaltryout->gambar_a) ?>">View</a>
           </div>
         </div>
       </div>
@@ -101,7 +101,7 @@
             <label class="custom-file-label" for="gambar_b">Choose file</label>
           </div>
           <div class="input-group-append">
-            <span class="input-group-text" data-src="{data_src}">View</span>
+            <a class="input-group-text image-popup-vertical-fit" href="<?= base_url('uploads/'.$soaltryout->gambar_b) ?>">View</a>
           </div>
         </div>
       </div>
@@ -116,7 +116,7 @@
             <label class="custom-file-label" for="gambar_c">Choose file</label>
           </div>
           <div class="input-group-append">
-            <span class="input-group-text" data-src="{data_src}">View</span>
+            <a class="input-group-text image-popup-vertical-fit" href="<?= base_url('uploads/'.$soaltryout->gambar_c) ?>">View</a>
           </div>
         </div>
       </div>
@@ -131,7 +131,7 @@
             <label class="custom-file-label" for="gambar_d">Choose file</label>
           </div>
           <div class="input-group-append">
-            <span class="input-group-text" data-src="{data_src}">View</span>
+            <a class="input-group-text image-popup-vertical-fit" href="<?= base_url('uploads/'.$soaltryout->gambar_d) ?>">View</a>
           </div>
         </div>
       </div>

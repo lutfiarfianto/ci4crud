@@ -64,6 +64,11 @@ class Xtable extends BaseCommand
                 'server_side_validation' => [
                     isset($fields[1])?$fields[1]->name:'field' => 'required',
                 ],
+                'upload' => [
+                    'mime_type'  => '^image',
+                    'file_ext'   => '(jpg|jpeg|png)',
+                    'media_path' => 'uploads',
+                ],
                 'render' => [
                     'controller'        => true,
                     'model'             => true,
