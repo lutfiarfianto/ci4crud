@@ -1,0 +1,285 @@
+{
+    "app": {
+        "class_name": "Jadwalkelas",
+        "table_name": "sp_jadwal_kelas",
+        "title": "Jadwal Kelas",
+        "subdir": "admin",
+        "form": {
+            "layout": "horizontal",
+            "title": {
+                "new": "New Jadwal Kelas",
+                "edit": "Edit Jadwal Kelas",
+                "show": "View Jadwal Kelas"
+            }
+        },
+        "table": {
+            "paging": 10,
+            "title": "List of Jadwal Kelas",
+            "css": {
+                "table": "",
+                "thead": "thead-dark"
+            }
+        },
+        "server_side_validation": {
+            "nama_jadwal": "required"
+        },
+        "upload": {
+            "mime_type": "^image",
+            "file_ext": "(jpg|jpeg|png)",
+            "media_path": "uploads"
+        },
+        "render": {
+            "controller": true,
+            "model": true,
+            "entity": true,
+            "view_index": true,
+            "view_index_filter": true,
+            "view_edit": true,
+            "view_show": true,
+            "route": true
+        }
+    },
+    "table": {
+        "id": {
+            "name": "id",
+            "type": "int",
+            "pk": true,
+            "table": {
+                "caption": "Id",
+                "show": 0,
+                "ordering": 0,
+                "filter": 1
+            },
+            "form": {
+                "label": "Id",
+                "show": true,
+                "ordering": 0,
+                "stub": "hidden"
+            },
+            "form_attr": {
+                "name": "id",
+                "class": "form-control",
+                "type": "hidden",
+                "placeholder": "Id",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "": "Select Id"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "nama_jadwal": {
+            "name": "nama_jadwal",
+            "type": "varchar",
+            "pk": false,
+            "table": {
+                "caption": "Nama Jadwal",
+                "show": 1,
+                "ordering": 1,
+                "filter": 1
+            },
+            "form": {
+                "label": "Nama Jadwal",
+                "show": true,
+                "ordering": 1,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "nama_jadwal",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Nama Jadwal",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "": "Select Nama Jadwal"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "uraian": {
+            "name": "uraian",
+            "type": "text",
+            "pk": false,
+            "table": {
+                "caption": "Uraian",
+                "show": 0,
+                "ordering": 2,
+                "filter": 1
+            },
+            "form": {
+                "label": "Uraian",
+                "show": true,
+                "ordering": 2,
+                "stub": "textarea"
+            },
+            "form_attr": {
+                "name": "uraian",
+                "class": "form-control",
+                "type": "textarea",
+                "placeholder": "Uraian",
+                "rows": 3
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "": "Select Uraian"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "tanggal_jam": {
+            "name": "tanggal_jam",
+            "type": "datetime",
+            "pk": false,
+            "table": {
+                "caption": "Tanggal Jam",
+                "show": 1,
+                "ordering": 3,
+                "filter": 1
+            },
+            "form": {
+                "label": "Tanggal Jam",
+                "show": true,
+                "ordering": 3,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "tanggal_jam",
+                "class": "form-control",
+                "type": "datetime",
+                "placeholder": "Tanggal Jam",
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "": "Select Tanggal Jam"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "mata_kuliah_id": {
+            "name": "mata_kuliah_id",
+            "type": "int",
+            "pk": false,
+            "table": {
+                "caption": "Mata Kuliah",
+                "show": 1,
+                "ordering": 4,
+                "filter": 1
+            },
+            "form": {
+                "label": "Mata Kuliah",
+                "show": true,
+                "ordering": 4,
+                "stub": "dropdown"
+            },
+            "form_attr": {
+                "name": "mata_kuliah_id",
+                "class": "form-control",
+                "type": "select",
+                "placeholder": "Mata Kuliah",
+            },
+            "data_source": {
+                "type": "db",
+                "array": {
+                    "": "Select Mata Kuliah Id"
+                },
+                "db": {
+                    "ref_model": "matakuliah",
+                    "key_fields": "id",
+                    "value_fields": "nama_mata_kuliah"
+                }
+            }
+        },
+        "ruang": {
+            "name": "ruang",
+            "type": "varchar",
+            "pk": false,
+            "table": {
+                "caption": "Ruang",
+                "show": 0,
+                "ordering": 5,
+                "filter": 1
+            },
+            "form": {
+                "label": "Ruang",
+                "show": true,
+                "ordering": 5,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "ruang",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Ruang",
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "": "Select Ruang"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        },
+        "tautan_daring": {
+            "name": "tautan_daring",
+            "type": "text",
+            "pk": false,
+            "table": {
+                "caption": "Tautan Daring",
+                "show": 0,
+                "ordering": 6,
+                "filter": 1
+            },
+            "form": {
+                "label": "Tautan Daring",
+                "show": true,
+                "ordering": 6,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "tautan_daring",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Tautan Daring",
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "": "Select Tautan Daring"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": ""
+                }
+            }
+        }
+    }
+}

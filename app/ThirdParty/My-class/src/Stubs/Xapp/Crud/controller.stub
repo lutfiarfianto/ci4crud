@@ -45,7 +45,6 @@ class {class_name} extends BaseController
                 'title' => '{table_title}',
             ],
             'per_page'    => {paginate},
-            'filter_info' => implode("\n", $filter_info ),
             'table_filter' => $table_filters,
         ];
 
@@ -69,6 +68,8 @@ class {class_name} extends BaseController
             
         }
         {/noparse}
+
+        $data['filter_info'] = implode("\n", $filter_info );
 
 
         echo view('{subdir}/{class_name}/Index', $data);

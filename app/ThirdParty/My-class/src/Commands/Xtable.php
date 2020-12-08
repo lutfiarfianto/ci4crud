@@ -115,6 +115,7 @@ class Xtable extends BaseCommand
                             'ref_model'    => '',
                             'key_fields'   => '',
                             'value_fields' => '',
+                            'default'      => '- Select One -',
                         ],
                     ],
                 ];

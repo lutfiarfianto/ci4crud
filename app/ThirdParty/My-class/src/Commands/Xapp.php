@@ -392,11 +392,12 @@ class Xapp extends BaseCommand
 
                 $stub = $this->stubPath('Crud/controller_edit_'.$src_meta->type);
                 $data = [
-                    'fld'          => $fld,
-                    'array'        => $this->arrayStringify( $src_meta->array ),
-                    'ref_model'    => $src_meta->db->ref_model,
-                    'key_fields'   => $src_meta->db->key_fields,
-                    'value_fields' => $src_meta->db->value_fields,
+                    'fld'           => $fld,
+                    'array'         => $this->arrayStringify( $src_meta->array ),
+                    'ref_model'     => $src_meta->db->ref_model,
+                    'key_fields'    => $src_meta->db->key_fields,
+                    'value_fields'  => $src_meta->db->value_fields,
+                    'default_value' => $src_meta->db->default_value,
                 ];
 
                 $edit_data_refs[] = $this->renderStub($stub, $data);
