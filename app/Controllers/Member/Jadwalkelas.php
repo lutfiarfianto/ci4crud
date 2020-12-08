@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\admin;
+namespace App\Controllers\Member;
 
 use App\Controllers\BaseController;
 
@@ -25,7 +25,7 @@ class Jadwalkelas extends BaseController
     {
 
         // ** if you want to build query manually, refer to CI4 query builder **
-        // $this->jadwalkelasModel->select('*, sp_jadwal_kelas.id ', FALSE );
+        $this->jadwalkelasModel->select('*, sp_jadwal_kelas.id ', FALSE );
 
         $table_filters = (object) ["nama_jadwal"=>null,"tanggal_jam"=>null,"mata_kuliah_id"=>null];
 
@@ -34,7 +34,7 @@ class Jadwalkelas extends BaseController
         };
 
                 if($table_filters->nama_jadwal){
-            $this->jadwalkelasModel->where('nama_jadwal',$table_filters->nama_jadwal);
+            $this->jadwalkelasModel->like('nama_jadwal',$table_filters->nama_jadwal);
         };
 
         if($table_filters->tanggal_jam){
@@ -44,7 +44,7 @@ class Jadwalkelas extends BaseController
         if($table_filters->mata_kuliah_id){
             $this->jadwalkelasModel->where('mata_kuliah_id',$table_filters->mata_kuliah_id);
         };
-
+        $this->jadwalkelasModel->join('sp_mata_kuliah','mata_kuliah_id=sp_mata_kuliah.id','left');
 
         $this->jadwalkelasModel->orderBy('sp_jadwal_kelas.id desc');
         $rows = $this->jadwalkelasModel->paginate(10);
@@ -65,7 +65,7 @@ class Jadwalkelas extends BaseController
 		$rows = $matakuliahModel->findAll();
 
 		$options_mata_kuliah_id = [
-			'' => '- Pilih Mata Kuliah -',
+			'' => '- Select One -',
 		];
 		foreach($rows as $k=>$row){
 			$options_mata_kuliah_id[$row->id] = $row->nama_mata_kuliah;
@@ -76,7 +76,7 @@ class Jadwalkelas extends BaseController
 
 
 
-        $filter_label = ["nama_jadwal"=>"Nama Jadwal","tanggal_jam"=>"Tanggal Jam","mata_kuliah_id"=>"Mata Kuliah"];
+        $filter_label = ["nama_jadwal"=>"Nama Jadwal","tanggal_jam"=>"Tanggal Jam","mata_kuliah_id"=>"Mata Kuliah Id"];
         $filter_info = [];
 
         $table_filters_txt = (object) [];
@@ -101,9 +101,9 @@ class Jadwalkelas extends BaseController
         
 
         $data['filter_info'] = implode("\n", $filter_info );
+        $data['sub_header'] = 'Subheader_tryout';
 
-
-        echo view('admin/Jadwalkelas/Index', $data);
+        echo view('Member/Jadwalkelas/Index', $data);
 
     }
 
@@ -111,6 +111,8 @@ class Jadwalkelas extends BaseController
     {
 
         try {
+
+            $this->jadwalkelasModel->join('sp_mata_kuliah','mata_kuliah_id=sp_mata_kuliah.id','left');
 
             $jadwalkelas = $this->jadwalkelasModel->find($id);
 
@@ -121,7 +123,7 @@ class Jadwalkelas extends BaseController
                 ],
             ];
 
-            echo view('admin/Jadwalkelas/Show', $data);
+            echo view('Member/Jadwalkelas/Show', $data);
 
         } catch (\Exception $e) {
             die($e->getMessage());
@@ -158,7 +160,7 @@ class Jadwalkelas extends BaseController
 		$rows = $matakuliahModel->findAll();
 
 		$options_mata_kuliah_id = [
-			'' => '- Pilih Mata Kuliah -',
+			'' => '- Select One -',
 		];
 		foreach($rows as $k=>$row){
 			$options_mata_kuliah_id[$row->id] = $row->nama_mata_kuliah;
@@ -173,7 +175,7 @@ class Jadwalkelas extends BaseController
                 $data['validation'] = $this->validator;
             };
 
-            echo view('admin/Jadwalkelas/Edit', $data);
+            echo view('Member/Jadwalkelas/Edit', $data);
 
         } catch (\Exception $e) {
             die($e->getMessage());
@@ -200,7 +202,7 @@ class Jadwalkelas extends BaseController
 		$rows = $matakuliahModel->findAll();
 
 		$options_mata_kuliah_id = [
-			'' => '- Pilih Mata Kuliah -',
+			'' => '- Select One -',
 		];
 		foreach($rows as $k=>$row){
 			$options_mata_kuliah_id[$row->id] = $row->nama_mata_kuliah;
@@ -210,7 +212,7 @@ class Jadwalkelas extends BaseController
 
 
 
-            echo view('admin/Jadwalkelas/Edit', $data);
+            echo view('Member/Jadwalkelas/Edit', $data);
 
         } catch (\Exception $e) {
             die($e->getMessage());
@@ -244,7 +246,7 @@ class Jadwalkelas extends BaseController
             return redirect()->back()->withInput()->with('errors', $this->jadwalkelasModel->errors());
         }
 
-        return redirect()->to('/admin/Jadwalkelas')->with('message', 'success');
+        return redirect()->to('/Member/Jadwalkelas')->with('message', 'success');
 
     }
 
@@ -258,12 +260,12 @@ class Jadwalkelas extends BaseController
 
         $this->jadwalkelasModel->delete($post_data);
 
-        return redirect()->to('/admin/Jadwalkelas')->with('message', 'success');
+        return redirect()->to('/Member/Jadwalkelas')->with('message', 'success');
 
     }
 
 }
 
 /* End of file Jadwalkelas.php */
-/* Location: ./app/Controllers/admin/Jadwalkelas.php */
+/* Location: ./app/Controllers/Member/Jadwalkelas.php */
 

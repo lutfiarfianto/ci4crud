@@ -1,27 +1,27 @@
 {
     "app": {
-        "class_name": "Jadwalkelas",
-        "table_name": "sp_jadwal_kelas",
-        "title": "Jadwal Kelas",
-        "subdir": "admin",
+        "class_name": "Tryout",
+        "table_name": "sp_judul_tryout",
+        "title": "Tryout",
+        "subdir": "Member",
         "form": {
             "layout": "horizontal",
             "title": {
-                "new": "New Jadwal Kelas",
-                "edit": "Edit Jadwal Kelas",
-                "show": "View Jadwal Kelas"
+                "new": "New Tryout",
+                "edit": "Edit Tryout",
+                "show": "View Tryout"
             }
         },
         "table": {
             "paging": 10,
-            "title": "List of Jadwal Kelas",
+            "title": "List of Tryout",
             "css": {
                 "table": "",
                 "thead": "thead-dark"
             }
         },
         "server_side_validation": {
-            "nama_jadwal": "required"
+            "judul_tryout": "required"
         },
         "upload": {
             "mime_type": "^image",
@@ -34,7 +34,7 @@
             "entity": true,
             "view_index": true,
             "view_index_filter": true,
-            "view_edit": true,
+            "view_edit": false,
             "view_show": true,
             "route": true
         }
@@ -71,111 +71,116 @@
                 "db": {
                     "ref_model": "",
                     "key_fields": "",
-                    "value_fields": ""
+                    "value_fields": "",
+                    "default": "- Select One -"
                 }
             }
         },
-        "nama_jadwal": {
-            "name": "nama_jadwal",
+        "judul_tryout": {
+            "name": "judul_tryout",
             "type": "varchar",
             "pk": false,
             "table": {
-                "caption": "Nama Jadwal",
+                "caption": "Judul Tryout",
                 "show": 1,
                 "ordering": 1,
                 "filter": 1
             },
             "form": {
-                "label": "Nama Jadwal",
+                "label": "Judul Tryout",
                 "show": true,
                 "ordering": 1,
                 "stub": "input"
             },
             "form_attr": {
-                "name": "nama_jadwal",
+                "name": "judul_tryout",
                 "class": "form-control",
                 "type": "text",
-                "placeholder": "Nama Jadwal",
+                "placeholder": "Judul Tryout",
                 "required": true
             },
             "data_source": {
                 "type": "",
                 "array": {
-                    "*": "Select Nama Jadwal"
+                    "*": "Select Judul Tryout"
                 },
                 "db": {
                     "ref_model": "",
                     "key_fields": "",
-                    "value_fields": ""
+                    "value_fields": "",
+                    "default": "- Select One -"
                 }
             }
         },
-        "uraian": {
-            "name": "uraian",
-            "type": "text",
+        "waktu_tryout": {
+            "name": "waktu_tryout",
+            "type": "int",
             "pk": false,
             "table": {
-                "caption": "Uraian",
+                "caption": "Waktu Tryout",
                 "show": 0,
                 "ordering": 2,
                 "filter": 1
             },
             "form": {
-                "label": "Uraian",
+                "label": "Waktu Tryout",
                 "show": true,
                 "ordering": 2,
-                "stub": "textarea"
+                "stub": "input"
             },
             "form_attr": {
-                "name": "uraian",
+                "name": "waktu_tryout",
                 "class": "form-control",
-                "type": "textarea",
-                "placeholder": "Uraian",
-                "rows": 3
+                "type": "text",
+                "placeholder": "Waktu Tryout",
+                "required": true
             },
             "data_source": {
                 "type": "",
                 "array": {
-                    "*": "Select Uraian"
+                    "*": "Select Waktu Tryout"
                 },
                 "db": {
                     "ref_model": "",
                     "key_fields": "",
-                    "value_fields": ""
+                    "value_fields": "",
+                    "default": "- Select One -"
                 }
             }
         },
-        "tanggal_jam": {
-            "name": "tanggal_jam",
-            "type": "datetime",
+        "semester": {
+            "name": "semester",
+            "type": "int",
             "pk": false,
             "table": {
-                "caption": "Tanggal Jam",
-                "show": 1,
+                "caption": "Semester",
+                "show": 0,
                 "ordering": 3,
                 "filter": 1
             },
             "form": {
-                "label": "Tanggal Jam",
+                "label": "Semester",
                 "show": true,
                 "ordering": 3,
                 "stub": "input"
             },
             "form_attr": {
-                "name": "tanggal_jam",
+                "name": "semester",
                 "class": "form-control",
-                "type": "datetime",
-                "placeholder": "Tanggal Jam",
+                "type": "text",
+                "placeholder": "Semester",
+                "required": true
             },
             "data_source": {
                 "type": "",
                 "array": {
-                    "*": "Select Tanggal Jam"
+                    "*": "Select Semester"
                 },
                 "db": {
                     "ref_model": "",
                     "key_fields": "",
-                    "value_fields": ""
+                    "value_fields": "",
+                    "default": "- Select One -"
                 }
             }
         },
@@ -184,13 +189,13 @@
             "type": "int",
             "pk": false,
             "table": {
-                "caption": "Mata Kuliah",
+                "caption": "Mata Kuliah Id",
                 "show": 1,
                 "ordering": 4,
                 "filter": 1
             },
             "form": {
-                "label": "Mata Kuliah",
+                "label": "Mata Kuliah Id",
                 "show": true,
                 "ordering": 4,
                 "stub": "dropdown"
@@ -198,8 +203,9 @@
             "form_attr": {
                 "name": "mata_kuliah_id",
                 "class": "form-control",
-                "type": "select",
-                "placeholder": "Mata Kuliah",
+                "type": "text",
+                "placeholder": "Mata Kuliah Id",
+                "required": true
             },
             "data_source": {
                 "type": "db",
@@ -210,75 +216,83 @@
                     "ref_model": "matakuliah",
                     "key_fields": "id",
                     "value_fields": "nama_mata_kuliah",
-                    "default_value" : "- Pilih Mata Kuliah -"
+                    "default": "- Pilih Mata Kuliah -"
                 }
             }
         },
-        "ruang": {
-            "name": "ruang",
+        "status_tryout": {
+            "name": "status_tryout",
             "type": "varchar",
             "pk": false,
             "table": {
-                "caption": "Ruang",
+                "caption": "Status Tryout",
                 "show": 0,
                 "ordering": 5,
                 "filter": 1
             },
             "form": {
-                "label": "Ruang",
+                "label": "Status Tryout",
                 "show": true,
                 "ordering": 5,
                 "stub": "input"
             },
             "form_attr": {
-                "name": "ruang",
+                "name": "status_tryout",
                 "class": "form-control",
                 "type": "text",
-                "placeholder": "Ruang",
+                "placeholder": "Status Tryout",
+                "required": true
             },
             "data_source": {
-                "type": "",
+                "type": "array",
                 "array": {
-                    "*": "Select Ruang"
+                    "draft" : "Draft",
+                    "publikasi" : "Publikasi",
+                    "arsip" : "Arsip"
                 },
                 "db": {
                     "ref_model": "",
                     "key_fields": "",
-                    "value_fields": ""
+                    "value_fields": "",
+                    "default": "- Select One -"
                 }
             }
         },
-        "tautan_daring": {
-            "name": "tautan_daring",
-            "type": "text",
+        "tipe_tryout": {
+            "name": "tipe_tryout",
+            "type": "varchar",
             "pk": false,
             "table": {
-                "caption": "Tautan Daring",
+                "caption": "Tipe Tryout",
                 "show": 0,
                 "ordering": 6,
                 "filter": 1
             },
             "form": {
-                "label": "Tautan Daring",
+                "label": "Tipe Tryout",
                 "show": true,
                 "ordering": 6,
                 "stub": "input"
             },
             "form_attr": {
-                "name": "tautan_daring",
+                "name": "tipe_tryout",
                 "class": "form-control",
                 "type": "text",
-                "placeholder": "Tautan Daring",
+                "placeholder": "Tipe Tryout",
+                "required": true
             },
             "data_source": {
-                "type": "",
+                "type": "array",
                 "array": {
-                    "*": "Select Tautan Daring"
+                    "*": "Select Tipe Tryout",
+                    "ganda": "Pilihan Ganda",
+                    "esai": "Esai"
                 },
                 "db": {
                     "ref_model": "",
                     "key_fields": "",
-                    "value_fields": ""
+                    "value_fields": "",
+                    "default": "- Select One -"
                 }
             }
         }

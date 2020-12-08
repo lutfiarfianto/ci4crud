@@ -2451,3 +2451,18 @@ a {
   padding-bottom: 30px;
   background-color: #232323;
 }
+
+
+
+/**
+ * custom css
+ */
+
+.card .btn {
+  margin: 0.3rem 0;
+}
+
+.card .modal-dialog, .card .modal-content {
+  height: auto;
+}
+

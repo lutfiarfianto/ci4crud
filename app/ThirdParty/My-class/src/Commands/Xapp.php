@@ -236,6 +236,8 @@ class Xapp extends BaseCommand
         $form_inputs = (object) [];
         $model = strtolower($config->app->class_name);
 
+        
+
         foreach ($form_config as $fld => $form_meta) {
             $form_attr->$fld->value = '$'.$model.'->'.$fld;
             if(in_array($form_meta->stub,['dropdown'])){
@@ -397,7 +399,7 @@ class Xapp extends BaseCommand
                     'ref_model'     => $src_meta->db->ref_model,
                     'key_fields'    => $src_meta->db->key_fields,
                     'value_fields'  => $src_meta->db->value_fields,
-                    'default_value' => $src_meta->db->default_value,
+                    'default_value' => isset($src_meta->db->default_value)?$src_meta->db->default_value:'- Select One -',
                 ];
 
                 $edit_data_refs[] = $this->renderStub($stub, $data);
@@ -442,6 +444,7 @@ class Xapp extends BaseCommand
                         'ref_model'    => $data_source->$fld->db->ref_model,
                         'key_fields'   => $data_source->$fld->db->key_fields,
                         'value_fields' => $data_source->$fld->db->value_fields,
+                        'default_value' => isset($src_meta->db->default_value)?$src_meta->db->default_value:'- Select One -',
                     ];
 
                     $filter_info_txts[] = $this->renderStub( $stub_filter_info_txt , $data );
@@ -672,10 +675,10 @@ class Xapp extends BaseCommand
 
     }
 
-    public function extractTable($var)
+    public function extractTable($var,$config=null)
     {
 
-        $_data = $this->config->table;
+        $_data = $config?$config->table:$this->config->table;
 
         $_extracted = (object) [];
 

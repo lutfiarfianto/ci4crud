@@ -7,11 +7,9 @@ use \CodeIgniter\Entity;
 class Tryout extends Entity
 {
 
-  public $tipe_tryout_array = [
-    'ganda' => 'Pilihan Ganda',
-    'esai'  => 'Soal Esay',
-  ];
+    public $status_tryout_array = ["draft"=>"Draft","publikasi"=>"Publikasi","arsip"=>"Arsip"];
 
+	public $tipe_tryout_array = ["*"=>"Select Tipe Tryout","ganda"=>"Pilihan Ganda","esai"=>"Esai"];
 
 }
 

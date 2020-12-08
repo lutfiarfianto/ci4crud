@@ -3,7 +3,7 @@
         "class_name": "Jadwalkelas",
         "table_name": "sp_jadwal_kelas",
         "title": "Jadwal Kelas",
-        "subdir": "admin",
+        "subdir": "Member",
         "form": {
             "layout": "horizontal",
             "title": {
@@ -34,7 +34,7 @@
             "entity": true,
             "view_index": true,
             "view_index_filter": true,
-            "view_edit": true,
+            "view_edit": false,
             "view_show": true,
             "route": true
         }
@@ -71,7 +71,8 @@
                 "db": {
                     "ref_model": "",
                     "key_fields": "",
-                    "value_fields": ""
+                    "value_fields": "",
+                    "default": "- Select One -"
                 }
             }
         },
@@ -106,7 +107,8 @@
                 "db": {
                     "ref_model": "",
                     "key_fields": "",
-                    "value_fields": ""
+                    "value_fields": "",
+                    "default": "- Select One -"
                 }
             }
         },
@@ -124,14 +126,14 @@
                 "label": "Uraian",
                 "show": true,
                 "ordering": 2,
-                "stub": "textarea"
+                "stub": "input"
             },
             "form_attr": {
                 "name": "uraian",
                 "class": "form-control",
-                "type": "textarea",
+                "type": "text",
                 "placeholder": "Uraian",
-                "rows": 3
+                "required": true
             },
             "data_source": {
                 "type": "",
@@ -141,7 +143,8 @@
                 "db": {
                     "ref_model": "",
                     "key_fields": "",
-                    "value_fields": ""
+                    "value_fields": "",
+                    "default": "- Select One -"
                 }
             }
         },
@@ -164,8 +167,9 @@
             "form_attr": {
                 "name": "tanggal_jam",
                 "class": "form-control",
-                "type": "datetime",
+                "type": "text",
                 "placeholder": "Tanggal Jam",
+                "required": true
             },
             "data_source": {
                 "type": "",
@@ -175,7 +179,8 @@
                 "db": {
                     "ref_model": "",
                     "key_fields": "",
-                    "value_fields": ""
+                    "value_fields": "",
+                    "default": "- Select One -"
                 }
             }
         },
@@ -184,13 +189,13 @@
             "type": "int",
             "pk": false,
             "table": {
-                "caption": "Mata Kuliah",
+                "caption": "Mata Kuliah Id",
                 "show": 1,
                 "ordering": 4,
                 "filter": 1
             },
             "form": {
-                "label": "Mata Kuliah",
+                "label": "Mata Kuliah Id",
                 "show": true,
                 "ordering": 4,
                 "stub": "dropdown"
@@ -199,7 +204,8 @@
                 "name": "mata_kuliah_id",
                 "class": "form-control",
                 "type": "select",
-                "placeholder": "Mata Kuliah",
+                "placeholder": "Mata Kuliah Id",
+                "required": true
             },
             "data_source": {
                 "type": "db",
@@ -210,7 +216,7 @@
                     "ref_model": "matakuliah",
                     "key_fields": "id",
                     "value_fields": "nama_mata_kuliah",
-                    "default_value" : "- Pilih Mata Kuliah -"
+                    "default": "- Select One -"
                 }
             }
         },
@@ -235,6 +241,7 @@
                 "class": "form-control",
                 "type": "text",
                 "placeholder": "Ruang",
+                "required": true
             },
             "data_source": {
                 "type": "",
@@ -244,7 +251,8 @@
                 "db": {
                     "ref_model": "",
                     "key_fields": "",
-                    "value_fields": ""
+                    "value_fields": "",
+                    "default": "- Select One -"
                 }
             }
         },
@@ -269,6 +277,7 @@
                 "class": "form-control",
                 "type": "text",
                 "placeholder": "Tautan Daring",
+                "required": true
             },
             "data_source": {
                 "type": "",
@@ -278,7 +287,8 @@
                 "db": {
                     "ref_model": "",
                     "key_fields": "",
-                    "value_fields": ""
+                    "value_fields": "",
+                    "default": "- Select One -"
                 }
             }
         }

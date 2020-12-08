@@ -21,9 +21,9 @@
       <?php endif;?>
 
             <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Nama Jadwal </label>
+        <label class="col-sm-2 col-form-label">Nama Jadwal *</label>
         <div class="col-sm-10">
-          <?= form_input(["name"=>"nama_jadwal","class"=>"form-control","type"=>"text","placeholder"=>"Nama Jadwal","value"=>$jadwalkelas->nama_jadwal]); ?>
+          <?= form_input(["name"=>"nama_jadwal","class"=>"form-control","type"=>"text","placeholder"=>"Nama Jadwal","required"=>true,"value"=>$jadwalkelas->nama_jadwal]); ?>
         </div>
       </div>
 
@@ -44,21 +44,21 @@
       <div class="form-group row">
         <label class="col-sm-2 col-form-label">Mata Kuliah </label>
         <div class="col-sm-10">
-          <?= form_dropdown(["name"=>"mata_kuliah_id","class"=>"form-control","type"=>"select","placeholder"=>"Mata Kuliah","options"=>$options_mata_kuliah_id,"selected"=>$jadwalkelas->mata_kuliah_id,"value"=>$jadwalkelas->mata_kuliah_id]) ?>
+          <?= form_dropdown(["name"=>"mata_kuliah_id","class"=>"form-control","type"=>"select","placeholder"=>"Mata Kuliah","value"=>$jadwalkelas->mata_kuliah_id,"options"=>$options_mata_kuliah_id,"selected"=>$jadwalkelas->mata_kuliah_id]) ?>
         </div>
       </div>
 
       <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Ruang *</label>
+        <label class="col-sm-2 col-form-label">Ruang </label>
         <div class="col-sm-10">
-          <?= form_input(["name"=>"ruang","class"=>"form-control","type"=>"text","placeholder"=>"Ruang","required"=>true,"value"=>$jadwalkelas->ruang]); ?>
+          <?= form_input(["name"=>"ruang","class"=>"form-control","type"=>"text","placeholder"=>"Ruang","value"=>$jadwalkelas->ruang]); ?>
         </div>
       </div>
 
       <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Tautan Daring *</label>
+        <label class="col-sm-2 col-form-label">Tautan Daring </label>
         <div class="col-sm-10">
-          <?= form_input(["name"=>"tautan_daring","class"=>"form-control","type"=>"text","placeholder"=>"Tautan Daring","required"=>true,"value"=>$jadwalkelas->tautan_daring]); ?>
+          <?= form_input(["name"=>"tautan_daring","class"=>"form-control","type"=>"text","placeholder"=>"Tautan Daring","value"=>$jadwalkelas->tautan_daring]); ?>
         </div>
       </div>
 

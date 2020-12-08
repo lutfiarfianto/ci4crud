@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="<?= base_url('mobi/assets/bootstrap/css/bootstrap-reboot.min.css') ?>">
   <link rel="stylesheet" href="<?= base_url('mobi/assets/dropdown/css/style.css') ?>">
   <link rel="stylesheet" href="<?= base_url('mobi/assets/socicon/css/styles.css') ?>">
+  <link rel="stylesheet" href="<?= base_url('dist/css/icons/font-awesome/css/fontawesome-all.css') ?>">
   <link rel="stylesheet" href="<?= base_url('mobi/assets/theme/css/style.css') ?>">
   <link rel="stylesheet" href="<?= base_url('mobi/assets/mobirise/css/mbr-additional.css') ?>">
   <link rel="preload" as="style" href="<?= base_url('mobi/assets/mobirise/css/mbr-additional.css') ?>">
@@ -30,7 +31,13 @@
 
   <?= $this->include('Layout/Member/Header') ?>
 
-  <?= $this->include('Layout/Member/Subheader') ?>
+  <?php 
+  
+  if (isset($sub_header) && !empty($sub_header)):
+    echo $this->include('Layout/Member/'.$sub_header);
+  endif; 
+  
+  ?>
 
   <?= $this->renderSection('content') ?>
 
