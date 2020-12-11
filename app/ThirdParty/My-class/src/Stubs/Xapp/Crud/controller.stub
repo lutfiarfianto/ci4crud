@@ -14,6 +14,14 @@ class {class_name} extends BaseController
 
     }
 
+    /*
+    public function session($id)
+    {
+        $parent_id = id_decode($id);
+        session()->set('parent_id',$parent_id);
+        return redirect()->to('/path/to/parent');
+    }
+    */
 
     public function filter(){
 

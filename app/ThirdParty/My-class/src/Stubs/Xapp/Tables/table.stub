@@ -35,12 +35,14 @@
         <tfoot>
           <tr>
             <td colspan="80">
-              <div class="d-flex justify-content-end">
-                <?=$pager->links()?>
-              </div>
             </td>
           </tr>
         </tfoot>
       </table>
         
     </div>
+
+    <div class="d-flex justify-content-end mt-3">
+      <?=$pager->links()?>
+    </div>
+

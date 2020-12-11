@@ -18,6 +18,7 @@ class Filters extends BaseConfig
 
 		// sp aliases
 		'tryoutAdmin'       => \App\Filters\TryoutsessionFilter::class,
+		'tryoutMember'      => \App\Filters\TryoutmembersessionFilter::class,
 		'siswaAdmin'        => \App\Filters\SiswasessionFilter::class,
 		'lembartryoutAdmin' => \App\Filters\LembartryoutsessionFilter::class,
 
@@ -51,5 +52,6 @@ class Filters extends BaseConfig
     'tryoutAdmin'       => ['before' => ['Admin/Soaltryout/*','Admin/Soaltryout']],
     'siswaAdmin'        => ['before' => ['Admin/Lembartryout/*','Admin/Lembartryout']],
     'lembartryoutAdmin' => ['before' => ['Admin/Jawabansoaltryout/*','Admin/Jawabansoaltryout']],
+    'tryoutMember'      => ['before' => ['Member/Soaltryout/*','Member/Soaltryout']],
 	];
 }

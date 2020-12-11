@@ -1,0 +1,656 @@
+{
+    "app": {
+        "class_name": "Soaltryout",
+        "table_name": "sp_soal_tryout",
+        "title": "Soal Tryout",
+        "subdir": "Member",
+        "form": {
+            "layout": "horizontal",
+            "title": {
+                "new": "New Soal Tryout",
+                "edit": "Edit Soal Tryout",
+                "show": "View Soal Tryout"
+            }
+        },
+        "table": {
+            "paging": 10,
+            "title": "List of Soal Tryout",
+            "css": {
+                "table": "",
+                "thead": "thead-dark"
+            }
+        },
+        "server_side_validation": {
+            "soal": "required"
+        },
+        "upload": {
+            "mime_type": "^image",
+            "file_ext": "(jpg|jpeg|png)",
+            "media_path": "uploads"
+        },
+        "render": {
+            "controller": true,
+            "model": true,
+            "entity": true,
+            "view_index": true,
+            "view_index_filter": true,
+            "view_edit": true,
+            "view_show": true,
+            "route": true
+        }
+    },
+    "table": {
+        "id": {
+            "name": "id",
+            "type": "int",
+            "pk": true,
+            "table": {
+                "caption": "Id",
+                "show": 1,
+                "ordering": 0,
+                "filter": 0
+            },
+            "form": {
+                "label": "Id",
+                "show": true,
+                "ordering": 0,
+                "stub": "hidden"
+            },
+            "form_attr": {
+                "name": "id",
+                "class": "form-control",
+                "type": "hidden",
+                "placeholder": "Id",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Id"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "soal": {
+            "name": "soal",
+            "type": "text",
+            "pk": false,
+            "table": {
+                "caption": "Soal",
+                "show": 1,
+                "ordering": 1,
+                "filter": 1
+            },
+            "form": {
+                "label": "Soal",
+                "show": true,
+                "ordering": 1,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "soal",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Soal",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Soal"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "judul_tryout_id": {
+            "name": "judul_tryout_id",
+            "type": "int",
+            "pk": false,
+            "table": {
+                "caption": "Judul Tryout Id",
+                "show": 0,
+                "ordering": 2,
+                "filter": 1
+            },
+            "form": {
+                "label": "Judul Tryout Id",
+                "show": true,
+                "ordering": 2,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "judul_tryout_id",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Judul Tryout Id",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Judul Tryout Id"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "no_soal": {
+            "name": "no_soal",
+            "type": "int",
+            "pk": false,
+            "table": {
+                "caption": "No Soal",
+                "show": 0,
+                "ordering": 3,
+                "filter": 1
+            },
+            "form": {
+                "label": "No Soal",
+                "show": true,
+                "ordering": 3,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "no_soal",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "No Soal",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select No Soal"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "gambar_soal": {
+            "name": "gambar_soal",
+            "type": "text",
+            "pk": false,
+            "table": {
+                "caption": "Gambar Soal",
+                "show": 1,
+                "ordering": 4,
+                "filter": 0
+            },
+            "form": {
+                "label": "Gambar Soal",
+                "show": true,
+                "ordering": 4,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "gambar_soal",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Gambar Soal",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Gambar Soal"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "jawaban_a": {
+            "name": "jawaban_a",
+            "type": "text",
+            "pk": false,
+            "table": {
+                "caption": "Jawaban A",
+                "show": 1,
+                "ordering": 5,
+                "filter": 0
+            },
+            "form": {
+                "label": "Jawaban A",
+                "show": true,
+                "ordering": 5,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "jawaban_a",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Jawaban A",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Jawaban A"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "jawaban_b": {
+            "name": "jawaban_b",
+            "type": "text",
+            "pk": false,
+            "table": {
+                "caption": "Jawaban B",
+                "show": 1,
+                "ordering": 6,
+                "filter": 0
+            },
+            "form": {
+                "label": "Jawaban B",
+                "show": true,
+                "ordering": 6,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "jawaban_b",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Jawaban B",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Jawaban B"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "jawaban_c": {
+            "name": "jawaban_c",
+            "type": "text",
+            "pk": false,
+            "table": {
+                "caption": "Jawaban C",
+                "show": 1,
+                "ordering": 7,
+                "filter": 0
+            },
+            "form": {
+                "label": "Jawaban C",
+                "show": true,
+                "ordering": 7,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "jawaban_c",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Jawaban C",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Jawaban C"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "jawaban_d": {
+            "name": "jawaban_d",
+            "type": "text",
+            "pk": false,
+            "table": {
+                "caption": "Jawaban D",
+                "show": 1,
+                "ordering": 8,
+                "filter": 0
+            },
+            "form": {
+                "label": "Jawaban D",
+                "show": true,
+                "ordering": 8,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "jawaban_d",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Jawaban D",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Jawaban D"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "gambar_a": {
+            "name": "gambar_a",
+            "type": "text",
+            "pk": false,
+            "table": {
+                "caption": "Gambar A",
+                "show": 1,
+                "ordering": 9,
+                "filter": 0
+            },
+            "form": {
+                "label": "Gambar A",
+                "show": true,
+                "ordering": 9,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "gambar_a",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Gambar A",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Gambar A"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "gambar_b": {
+            "name": "gambar_b",
+            "type": "text",
+            "pk": false,
+            "table": {
+                "caption": "Gambar B",
+                "show": 1,
+                "ordering": 10,
+                "filter": 0
+            },
+            "form": {
+                "label": "Gambar B",
+                "show": true,
+                "ordering": 10,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "gambar_b",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Gambar B",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Gambar B"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "gambar_c": {
+            "name": "gambar_c",
+            "type": "text",
+            "pk": false,
+            "table": {
+                "caption": "Gambar C",
+                "show": 1,
+                "ordering": 11,
+                "filter": 0
+            },
+            "form": {
+                "label": "Gambar C",
+                "show": true,
+                "ordering": 11,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "gambar_c",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Gambar C",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Gambar C"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "gambar_d": {
+            "name": "gambar_d",
+            "type": "text",
+            "pk": false,
+            "table": {
+                "caption": "Gambar D",
+                "show": 1,
+                "ordering": 12,
+                "filter": 0
+            },
+            "form": {
+                "label": "Gambar D",
+                "show": true,
+                "ordering": 12,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "gambar_d",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Gambar D",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Gambar D"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "jawaban_soal_ganda": {
+            "name": "jawaban_soal_ganda",
+            "type": "varchar",
+            "pk": false,
+            "table": {
+                "caption": "Jawaban Soal Ganda",
+                "show": 0,
+                "ordering": 13,
+                "filter": 0
+            },
+            "form": {
+                "label": "Jawaban Soal Ganda",
+                "show": true,
+                "ordering": 13,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "jawaban_soal_ganda",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Jawaban Soal Ganda",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Jawaban Soal Ganda"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "jawaban_soal_esay": {
+            "name": "jawaban_soal_esay",
+            "type": "text",
+            "pk": false,
+            "table": {
+                "caption": "Jawaban Soal Esay",
+                "show": 0,
+                "ordering": 14,
+                "filter": 1
+            },
+            "form": {
+                "label": "Jawaban Soal Esay",
+                "show": true,
+                "ordering": 14,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "jawaban_soal_esay",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Jawaban Soal Esay",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Jawaban Soal Esay"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "pembahasan_jawaban": {
+            "name": "pembahasan_jawaban",
+            "type": "text",
+            "pk": false,
+            "table": {
+                "caption": "Pembahasan Jawaban",
+                "show": 0,
+                "ordering": 15,
+                "filter": 1
+            },
+            "form": {
+                "label": "Pembahasan Jawaban",
+                "show": true,
+                "ordering": 15,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "pembahasan_jawaban",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Pembahasan Jawaban",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Pembahasan Jawaban"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "gambar_pembahasan_jawaban": {
+            "name": "gambar_pembahasan_jawaban",
+            "type": "text",
+            "pk": false,
+            "table": {
+                "caption": "Gambar Pembahasan Jawaban",
+                "show": 0,
+                "ordering": 16,
+                "filter": 1
+            },
+            "form": {
+                "label": "Gambar Pembahasan Jawaban",
+                "show": true,
+                "ordering": 16,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "gambar_pembahasan_jawaban",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Gambar Pembahasan Jawaban",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Gambar Pembahasan Jawaban"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        }
+    }
+}

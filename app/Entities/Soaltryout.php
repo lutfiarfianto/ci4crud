@@ -7,7 +7,7 @@ use \CodeIgniter\Entity;
 class Soaltryout extends Entity
 {
 
-
+    
 
 }
 

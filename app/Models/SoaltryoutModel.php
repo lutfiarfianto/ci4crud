@@ -20,6 +20,8 @@ class SoaltryoutModel extends BaseModel
     protected $skipValidation     = false;
 
 
+	
+
 
 
 }
