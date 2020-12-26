@@ -2,7 +2,17 @@
 
 <?=$this->section('content')?>
 
+
+<?= $this->include('Member/Soaltryout/index_filter')?>
+
+
 <div class="card">
+  <?= form_open('Member/Jawabantryout/store') ?>
+  <?= form_hidden('lembar_tryout_id',$lembar_id) ?>
+  <?= form_hidden('judul_tryout_id',$tryout_id) ?>
+  
+
+  <?= csrf_field() ?>
 
   <div class="card-body">
 
@@ -14,85 +24,87 @@
         <button type="button" class="btn btn-primary margin-5" data-toggle="modal" data-target="#index_filter">
           <i class="fas fa-search    "></i> Filter
         </button>
-        <a href="<?= site_url('Member/Soaltryout/new') ?>" class="btn btn-success"><i
-            class="fas fa-plus-circle    "></i> New</a>
       </div>
     </div>
 
-    <?= $this->include('Member/Soaltryout/index_filter')?>
 
-    <div class="table-responsive">
+            <?php foreach ($rows as $key => $row) { ?>
+          
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-text">
 
-      <table class="table table-sm table-striped ">
-        <thead class="thead-dark">
-          <tr>
-            <th class="table-head-number">No</th>
-            <th>Soal</th>
-            <th>Gambar Soal</th>
-            <th>Jawaban A</th>
-            <th>Jawaban B</th>
-            <th>Jawaban C</th>
-            <th>Jawaban D</th>
-            <th>Gambar A</th>
-            <th>Gambar B</th>
-            <th>Gambar C</th>
-            <th>Gambar D</th>
-            <th class="table-head-action text-right">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php foreach ($rows as $key => $row) {?>
+                    <div class="row">
+                      <div class="col-num">
+                        <?=row_num($per_page,$key) ?> 
+                      </div>
+                      <div class="col-md-8">
+                        <!-- soal -->
+                        <div class="row">
+                          <div class="col-md-12">
+                            <?php if($row->gambar_soal):?>
+                              <p><img src="<?= base_url('uploads/'.$row->gambar_soal)?>" class="img-fluid" ?></p>
+                            <?php endif; ?>
+                            <?= $row->soal ?>
+                          </div>
+                        </div>
+                        <!--  jawaban A -->
+                        <?php $opsi = ['a','b','c','d']; ?>
+                        <?php foreach ($opsi as $i => $opsi_item ) : ?>
+                        <?php $opsi_gambar = "gambar_".$opsi_item;?>
+                        <?php $opsi_jawaban = "jawaban_".$opsi_item;?>
+                        <div class="row">
+                          <div class="col-md-12">
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="jawaban_soal_id[<?= $row->id ?>]" id="jawaban_soal_<?= $row->id ?>" value="<?=$opsi_item ?>" >
+                                  <?php if($row->$opsi_gambar):?>
+                                    <p><img src="<?= base_url('uploads/'. $row->$opsi_gambar) ?>" class="img-fluid " alt=""></p>
+                                  <?php endif; ?>
+                                  <?= $row->$opsi_jawaban ?>
+                                </label>
+                              </div>
+                          </div>
+                        </div>
 
-          <tr>
-            <td><?=row_num($per_page,$key) ?></td>
-            <td><?= $row->soal ?></td>
-            <td><?= $row->gambar_soal ?></td>
-            <td><?= $row->jawaban_a ?></td>
-            <td><?= $row->jawaban_b ?></td>
-            <td><?= $row->jawaban_c ?></td>
-            <td><?= $row->jawaban_d ?></td>
-            <td><?= $row->gambar_a ?></td>
-            <td><?= $row->gambar_b ?></td>
-            <td><?= $row->gambar_c ?></td>
-            <td><?= $row->gambar_d ?></td>
-            <td class="d-flex justify-content-end">
-              <div class="btn-group" role="group" aria-label="">
-                <a title="Edit" data-toggle="tooltip" href="<?=site_url('Member/Soaltryout/edit/' . $row->id)?>"
-                  type="button" class="btn btn-sm btn-default">
-                  <i class="fas fa-edit    "></i>
-                </a>
-                <a title="Show" data-toggle="tooltip" href="<?=site_url('Member/Soaltryout/show/' . $row->id)?>"
-                  type="button" class="btn btn-sm btn-primary">
-                  <i class="fas fa-eye    "></i>
-                </a>
-                <a title="Delete" data-toggle="tooltip" href="<?=site_url('Member/Soaltryout/delete/' . $row->id)?>"
-                  type="button" class="btn btn-sm btn-danger">
-                  <i class="fas fa-times    "></i>
-                </a>
+                        <?php endforeach; ?>
+                      </div>
+                    </div>
+
+                  </p>
+                </div>
               </div>
 
-            </td>
-          </tr>
 
           <?php } ?>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="80">
-            </td>
-          </tr>
-        </tfoot>
-      </table>
 
-    </div>
+          </div>
 
-    <div class="d-flex justify-content-end mt-3">
-      <?=$pager->links()?>
-    </div>
+          <div class="container mt-3">
+          
+            <div class="row">
+              <div class="col-md-6">
+
+                <div class="btn-group" role="group" aria-label="">
+                  <button class="btn btn-sm btn-warning"><i class="fas fa-chevron-circle-left mr-1   "></i>  Kembali</button>
+                  <button class="btn btn-sm btn-primary">Kirim <i class="fas fa-paper-plane ml-1   "></i></button>
+                </div>
+
+              </div>
+              <div class="col-md-6">
+                <div class="d-flex justify-content-end">
+                  <?php //$pager->links() ?>
+                </div>
+              </div>
+            </div>
+          
+          </div>
+
 
 
   </div>
 
+  <?= form_close() ?>
 </div>
 
 

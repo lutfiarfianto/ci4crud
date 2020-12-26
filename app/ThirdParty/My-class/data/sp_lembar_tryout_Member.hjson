@@ -1,0 +1,260 @@
+{
+    "app": {
+        "class_name": "Hasiltryout",
+        "table_name": "sp_lembar_tryout",
+        "title": "Hasil Tryout",
+        "subdir": "Member",
+        "form": {
+            "layout": "horizontal",
+            "title": {
+                "new": "New Hasil Tryout",
+                "edit": "Edit Hasil Tryout",
+                "show": "View Hasil Tryout"
+            }
+        },
+        "table": {
+            "paging": 10,
+            "title": "List of Hasil Tryout",
+            "css": {
+                "table": "",
+                "thead": "thead-dark"
+            }
+        },
+        "server_side_validation": {
+            "siswa_id": "required"
+        },
+        "upload": {
+            "mime_type": "^image",
+            "file_ext": "(jpg|jpeg|png)",
+            "media_path": "uploads"
+        },
+        "render": {
+            "controller": true,
+            "model": true,
+            "entity": true,
+            "view_index": true,
+            "view_index_filter": true,
+            "view_edit": true,
+            "view_show": true,
+            "route": true
+        }
+    },
+    "table": {
+        "id": {
+            "name": "id",
+            "type": "int",
+            "pk": true,
+            "table": {
+                "caption": "Id",
+                "show": 0,
+                "ordering": 0,
+                "filter": 1
+            },
+            "form": {
+                "label": "Id",
+                "show": true,
+                "ordering": 0,
+                "stub": "hidden"
+            },
+            "form_attr": {
+                "name": "id",
+                "class": "form-control",
+                "type": "hidden",
+                "placeholder": "Id",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Id"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "siswa_id": {
+            "name": "siswa_id",
+            "type": "int",
+            "pk": false,
+            "table": {
+                "caption": "Siswa Id",
+                "show": 0,
+                "ordering": 1,
+                "filter": 1
+            },
+            "form": {
+                "label": "Siswa Id",
+                "show": true,
+                "ordering": 1,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "siswa_id",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Siswa Id",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Siswa Id"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "judul_tryout_id": {
+            "name": "judul_tryout_id",
+            "type": "int",
+            "pk": false,
+            "table": {
+                "caption": "Judul Tryout Id",
+                "show": 1,
+                "ordering": 2,
+                "filter": 1
+            },
+            "form": {
+                "label": "Judul Tryout Id",
+                "show": true,
+                "ordering": 2,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "judul_tryout_id",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Judul Tryout Id",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Judul Tryout Id"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "semester": {
+            "name": "semester",
+            "type": "int",
+            "pk": false,
+            "table": {
+                "caption": "Semester",
+                "show": 0,
+                "ordering": 3,
+                "filter": 1
+            },
+            "form": {
+                "label": "Semester",
+                "show": true,
+                "ordering": 3,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "semester",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Semester",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Semester"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "tanggal_jam_tryout": {
+            "name": "tanggal_jam_tryout",
+            "type": "datetime",
+            "pk": false,
+            "table": {
+                "caption": "Tanggal Jam Tryout",
+                "show": 0,
+                "ordering": 4,
+                "filter": 1
+            },
+            "form": {
+                "label": "Tanggal Jam Tryout",
+                "show": true,
+                "ordering": 4,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "tanggal_jam_tryout",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Tanggal Jam Tryout",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Tanggal Jam Tryout"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "skor_tryout": {
+            "name": "skor_tryout",
+            "type": "int",
+            "pk": false,
+            "table": {
+                "caption": "Skor Tryout",
+                "show": 1,
+                "ordering": 5,
+                "filter": 0
+            },
+            "form": {
+                "label": "Skor Tryout",
+                "show": true,
+                "ordering": 5,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "skor_tryout",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Skor Tryout",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Skor Tryout"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        }
+    }
+}

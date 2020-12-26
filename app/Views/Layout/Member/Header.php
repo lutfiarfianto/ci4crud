@@ -19,15 +19,15 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
-        <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="<?= base_url('mobi/index.html') ?>">
+        <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="<?= site_url('/Member/Materi') ?>">
             Kursus</a></li>
-        <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="<?= base_url('mobi/page1.html') ?>">
+        <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="<?= site_url('/Member/Tryout') ?>">
             Tryout</a></li>
         <li class="nav-item"><a class="nav-link link text-black text-primary display-4"
-            href="<?= base_url('mobi/page2.html') ?>">Diskusi<br></a>
+            href="<?= site_url('/Member/Diskusi') ?>">Diskusi<br></a>
         </li>
         <li class="nav-item"><a class="nav-link link text-black text-primary display-4"
-            href="<?= base_url('mobi/page3.html') ?>">Profil<br></a></li>
+            href="<?= site_url('/Member/Profil') ?>">Profil<br></a></li>
       </ul>
 
 

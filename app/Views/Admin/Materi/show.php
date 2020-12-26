@@ -35,6 +35,13 @@
       </div>
 
       <div class="form-group row">
+        <label class="col-sm-2 font-weight-bold">Thumbnail</label>
+        <div class="col-sm-10">
+          <?= $materi->url_thumbnail ?>
+        </div>
+      </div>
+
+      <div class="form-group row">
         <label class="col-sm-2 font-weight-bold">Url Video</label>
         <div class="col-sm-10">
           <?= $materi->url_video ?>
@@ -42,7 +49,7 @@
       </div>
 
       <div class="form-group row">
-        <label class="col-sm-2 font-weight-bold">Url Pdf</label>
+        <label class="col-sm-2 font-weight-bold">PDF File</label>
         <div class="col-sm-10">
           <?= $materi->url_pdf ?>
         </div>

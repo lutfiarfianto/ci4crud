@@ -18,6 +18,17 @@ class Soaltryout extends BaseController
     {
         $tryout_id = id_decode($id);
         session()->set('tryout_id', $tryout_id);
+
+        $data = [
+            'judul_tryout_id' => $tryout_id,
+            'siswa_id'        => 3,
+        ];
+
+
+        $lembar_tryout_id = $this->lembartryout_id($data);
+
+        session()->set('lembar_id', $lembar_tryout_id);
+
         return redirect()->to('/Member/Soaltryout');
     }
 
@@ -36,6 +47,8 @@ class Soaltryout extends BaseController
 
         $table_filters = (object) ["soal" => null];
 
+        $lembar_id = session()->get('lembar_id');
+
         foreach ($table_filters as $field => &$value) {
             $value = refine_var($this->request->getGet($field));
         };
@@ -44,17 +57,21 @@ class Soaltryout extends BaseController
             $this->soaltryoutModel->like('soal', $table_filters->soal);
         };
 
+        $this->soaltryoutModel->where('judul_tryout_id',session()->get('tryout_id'));
+
         $this->soaltryoutModel->orderBy('sp_soal_tryout.id desc');
         $rows = $this->soaltryoutModel->paginate(10);
 
         $data = [
-            'rows' => $rows,
-            'pager' => $this->soaltryoutModel->pager,
+            'rows'       => $rows,
+            'pager'      => $this->soaltryoutModel->pager,
             'breadcrumb' => [
                 'title' => 'List of Soal Tryout',
             ],
-            'per_page' => 10,
-            'table_filter' => $table_filters,
+            'per_page'        => 10,
+            'table_filter'    => $table_filters,
+            'lembar_id'       => $lembar_id,
+            'tryout_id' => session()->get('tryout_id'),
         ];
 
         $filter_label = ["soal" => "Soal"];
@@ -195,6 +212,21 @@ class Soaltryout extends BaseController
         $this->soaltryoutModel->delete($post_data);
 
         return redirect()->to('/Member/Soaltryout')->with('message', 'success');
+
+    }
+
+    public function lembartryout_id($data)
+    {
+        
+        $lembartryoutModel = new \App\Models\LembartryoutModel();
+
+        $lembartryout_store = new \App\Entities\Lembartryout($data);
+
+        $lembartryoutModel->save($lembartryout_store);
+
+        $id = $lembartryoutModel->insertID();
+
+        return $id;
 
     }
 

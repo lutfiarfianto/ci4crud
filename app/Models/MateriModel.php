@@ -13,7 +13,7 @@ class MateriModel extends BaseModel
     protected $returnType     = 'App\Entities\Materi';
     protected $useSoftDeletes = true;
 
-    protected $allowedFields = ["id","judul_materi","mata_kuliah_id","semester","uraian_ringkas","url_video","url_pdf","pengajar"];
+    protected $allowedFields = ["id","judul_materi","mata_kuliah_id","semester","uraian_ringkas","url_thumbnail","url_video","url_pdf","pengajar"];
 
     protected $validationRules    = [];
     protected $validationMessages = [];

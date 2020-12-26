@@ -1,6 +1,6 @@
 <?php
 
-$routes->group('/Admin/{Materi}',[
+$routes->group('/Admin/Materi',[
         // 'filter'=>['login'],
         'namespace'=>'\App\Controllers\Admin'
     ],function($routes){

@@ -18,9 +18,10 @@ class Filters extends BaseConfig
 
 		// sp aliases
 		'tryoutAdmin'       => \App\Filters\TryoutsessionFilter::class,
-		'tryoutMember'      => \App\Filters\TryoutmembersessionFilter::class,
 		'siswaAdmin'        => \App\Filters\SiswasessionFilter::class,
 		'lembartryoutAdmin' => \App\Filters\LembartryoutsessionFilter::class,
+
+		'tryoutMember'      => \App\Filters\TryoutmembersessionFilter::class,
 
 
 

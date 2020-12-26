@@ -23,6 +23,11 @@
         "server_side_validation": {
             "judul_materi": "required"
         },
+        "upload": {
+            "mime_type": "(image|pdf)",
+            "file_ext": "(jpg|jpeg|png|pdf)",
+            "media_path": "uploads"
+        },
         "render": {
             "controller": true,
             "model": true,
@@ -66,7 +71,8 @@
                 "db": {
                     "ref_model": "",
                     "key_fields": "",
-                    "value_fields": ""
+                    "value_fields": "",
+                    "default": "- Select One -"
                 }
             }
         },
@@ -101,7 +107,8 @@
                 "db": {
                     "ref_model": "",
                     "key_fields": "",
-                    "value_fields": ""
+                    "value_fields": "",
+                    "default": "- Select One -"
                 }
             }
         },
@@ -135,7 +142,8 @@
                 "db": {
                     "ref_model": "matakuliah",
                     "key_fields": "id",
-                    "value_fields": "nama_mata_kuliah"
+                    "value_fields": "nama_mata_kuliah",
+                    "default": "- Select One -"
                 }
             }
         },
@@ -170,7 +178,8 @@
                 "db": {
                     "ref_model": "",
                     "key_fields": "",
-                    "value_fields": ""
+                    "value_fields": "",
+                    "default": "- Select One -"
                 }
             }
         },
@@ -188,14 +197,14 @@
                 "label": "Uraian Ringkas",
                 "show": true,
                 "ordering": 4,
-                "stub": "input"
+                "stub": "textarea"
             },
             "form_attr": {
                 "name": "uraian_ringkas",
                 "class": "form-control",
                 "type": "text",
                 "placeholder": "Uraian Ringkas",
-                "required": true
+                "rows" : 3,
             },
             "data_source": {
                 "type": "",
@@ -205,7 +214,43 @@
                 "db": {
                     "ref_model": "",
                     "key_fields": "",
-                    "value_fields": ""
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "url_thumbnail": {
+            "name": "url_thumbnail",
+            "type": "text",
+            "pk": false,
+            "table": {
+                "caption": "Url Thumbnail",
+                "show": 0,
+                "ordering": 5,
+                "filter": 1
+            },
+            "form": {
+                "label": "Thumbnail",
+                "show": true,
+                "ordering": 5,
+                "stub": "upload"
+            },
+            "form_attr": {
+                "name": "url_thumbnail",
+                "id": "url_thumbnail",
+                "type": "file",
+                "placeholder": "Thumbnail",
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Url Thumbnail"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
                 }
             }
         },
@@ -216,18 +261,19 @@
             "table": {
                 "caption": "Url Video",
                 "show": 0,
-                "ordering": 5,
+                "ordering": 6,
                 "filter": 1
             },
             "form": {
                 "label": "Url Video",
                 "show": true,
-                "ordering": 5,
-                "stub": "upload"
+                "ordering": 6,
+                "stub": "input"
             },
             "form_attr": {
                 "name": "url_video",
-                "type": "file",
+                "class": "form-control",
+                "type": "text",
                 "placeholder": "Url Video",
             },
             "data_source": {
@@ -238,7 +284,8 @@
                 "db": {
                     "ref_model": "",
                     "key_fields": "",
-                    "value_fields": ""
+                    "value_fields": "",
+                    "default": "- Select One -"
                 }
             }
         },
@@ -249,19 +296,20 @@
             "table": {
                 "caption": "Url Pdf",
                 "show": 0,
-                "ordering": 6,
+                "ordering": 7,
                 "filter": 1
             },
             "form": {
-                "label": "Url Pdf",
+                "label": "PDF File",
                 "show": true,
-                "ordering": 6,
+                "ordering": 7,
                 "stub": "upload"
             },
             "form_attr": {
                 "name": "url_pdf",
+                "id": "url_pdf",
                 "type": "file",
-                "placeholder": "Url Pdf",
+                "placeholder": "PDF File",
             },
             "data_source": {
                 "type": "",
@@ -271,7 +319,8 @@
                 "db": {
                     "ref_model": "",
                     "key_fields": "",
-                    "value_fields": ""
+                    "value_fields": "",
+                    "default": "- Select One -"
                 }
             }
         },
@@ -282,13 +331,13 @@
             "table": {
                 "caption": "Pengajar",
                 "show": 0,
-                "ordering": 7,
+                "ordering": 8,
                 "filter": 1
             },
             "form": {
                 "label": "Pengajar",
                 "show": true,
-                "ordering": 7,
+                "ordering": 8,
                 "stub": "input"
             },
             "form_attr": {
@@ -296,7 +345,6 @@
                 "class": "form-control",
                 "type": "text",
                 "placeholder": "Pengajar",
-                "required": true
             },
             "data_source": {
                 "type": "",
@@ -306,7 +354,8 @@
                 "db": {
                     "ref_model": "",
                     "key_fields": "",
-                    "value_fields": ""
+                    "value_fields": "",
+                    "default": "- Select One -"
                 }
             }
         }
