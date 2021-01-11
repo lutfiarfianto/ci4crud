@@ -44,7 +44,7 @@ class BaseController extends Controller
         $this->parser = \Config\Services::parser();
 
 		// $this->loadHelpers('auth');
-		helper(['auth','uri','form','url','filesystem','myview','myhashids']);
+		helper(['auth','uri','form','url','filesystem','myview','myhashids','text']);
 
 	}
 

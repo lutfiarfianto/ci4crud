@@ -1,0 +1,368 @@
+{
+    "app": {
+        "class_name": "Diskusi",
+        "table_name": "sp_diskusi",
+        "title": "Diskusi",
+        "subdir": "Member",
+        "form": {
+            "layout": "horizontal",
+            "title": {
+                "new": "New Diskusi",
+                "edit": "Edit Diskusi",
+                "show": "View Diskusi"
+            }
+        },
+        "table": {
+            "paging": 10,
+            "title": "List of Diskusi",
+            "css": {
+                "table": "",
+                "thead": "thead-dark"
+            }
+        },
+        "server_side_validation": {
+            "judul_diskusi": "required"
+        },
+        "upload": {
+            "mime_type": "^image",
+            "file_ext": "(jpg|jpeg|png)",
+            "media_path": "uploads"
+        },
+        "render": {
+            "controller": true,
+            "model": true,
+            "entity": true,
+            "view_index": true,
+            "view_index_filter": true,
+            "view_edit": true,
+            "view_show": true,
+            "route": true
+        }
+    },
+    "table": {
+        "id": {
+            "name": "id",
+            "type": "int",
+            "pk": true,
+            "table": {
+                "caption": "Id",
+                "show": 1,
+                "ordering": 0,
+                "filter": 1
+            },
+            "form": {
+                "label": "Id",
+                "show": true,
+                "ordering": 0,
+                "stub": "hidden"
+            },
+            "form_attr": {
+                "name": "id",
+                "class": "form-control",
+                "type": "hidden",
+                "placeholder": "Id",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Id"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "judul_diskusi": {
+            "name": "judul_diskusi",
+            "type": "text",
+            "pk": false,
+            "table": {
+                "caption": "Judul Diskusi",
+                "show": 1,
+                "ordering": 1,
+                "filter": 1
+            },
+            "form": {
+                "label": "Judul Diskusi",
+                "show": true,
+                "ordering": 1,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "judul_diskusi",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Judul Diskusi",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Judul Diskusi"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "parent_id": {
+            "name": "parent_id",
+            "type": "int",
+            "pk": false,
+            "table": {
+                "caption": "Parent Id",
+                "show": 1,
+                "ordering": 2,
+                "filter": 1
+            },
+            "form": {
+                "label": "Parent Id",
+                "show": true,
+                "ordering": 2,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "parent_id",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Parent Id",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Parent Id"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "tipe_diskusi": {
+            "name": "tipe_diskusi",
+            "type": "varchar",
+            "pk": false,
+            "table": {
+                "caption": "Tipe Diskusi",
+                "show": 1,
+                "ordering": 3,
+                "filter": 1
+            },
+            "form": {
+                "label": "Tipe Diskusi",
+                "show": true,
+                "ordering": 3,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "tipe_diskusi",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Tipe Diskusi",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Tipe Diskusi"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "comment": {
+            "name": "comment",
+            "type": "text",
+            "pk": false,
+            "table": {
+                "caption": "Comment",
+                "show": 1,
+                "ordering": 4,
+                "filter": 1
+            },
+            "form": {
+                "label": "Comment",
+                "show": true,
+                "ordering": 4,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "comment",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Comment",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Comment"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "gambar_soal": {
+            "name": "gambar_soal",
+            "type": "text",
+            "pk": false,
+            "table": {
+                "caption": "Gambar Soal",
+                "show": 1,
+                "ordering": 5,
+                "filter": 1
+            },
+            "form": {
+                "label": "Gambar Soal",
+                "show": true,
+                "ordering": 5,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "gambar_soal",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Gambar Soal",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Gambar Soal"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "rating_soal": {
+            "name": "rating_soal",
+            "type": "float",
+            "pk": false,
+            "table": {
+                "caption": "Rating Soal",
+                "show": 1,
+                "ordering": 6,
+                "filter": 1
+            },
+            "form": {
+                "label": "Rating Soal",
+                "show": true,
+                "ordering": 6,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "rating_soal",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Rating Soal",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Rating Soal"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "user_id": {
+            "name": "user_id",
+            "type": "int",
+            "pk": false,
+            "table": {
+                "caption": "User Id",
+                "show": 1,
+                "ordering": 7,
+                "filter": 1
+            },
+            "form": {
+                "label": "User Id",
+                "show": true,
+                "ordering": 7,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "user_id",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "User Id",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select User Id"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "publishing": {
+            "name": "publishing",
+            "type": "varchar",
+            "pk": false,
+            "table": {
+                "caption": "Publishing",
+                "show": 1,
+                "ordering": 8,
+                "filter": 1
+            },
+            "form": {
+                "label": "Publishing",
+                "show": true,
+                "ordering": 8,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "publishing",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Publishing",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Publishing"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        }
+    }
+}

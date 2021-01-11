@@ -272,7 +272,21 @@ class Jawabantryout extends BaseController
         ]);
 
         $this->jawabantryoutModel->orderBy('sp_jawaban_soal_tryout.id desc');
-        $rows = $this->jawabantryoutModel->paginate(1000);
+        $rows = $this->jawabantryoutModel->findAll();
+
+        $tryoutModel = new \App\Models\TryoutModel();
+
+        $tryout = $tryoutModel->find( $tryout_id );
+
+        $diskusiModel = new \App\Models\DiskusiModel();
+
+        $diskusi = $diskusiModel
+            ->select('*,sp_diskusi.id')
+            ->where('tipe_diskusi','tryout')
+            ->where('post_id',$tryout_id)
+            ->join('users','users.id=sp_diskusi.user_id')
+            ->orderBy('sp_diskusi.id','desc')
+            ->findAll();
 
         $data = [
             'rows' => $rows,
@@ -280,8 +294,10 @@ class Jawabantryout extends BaseController
             'breadcrumb' => [
                 'title' => 'List of Jawaban Tryout',
             ],
-            'per_page' => 1000,
             'table_filter' => $table_filters,
+            'tryout' => $tryout,
+            'diskusi' => $diskusi,
+            'per_page' => 1000,
         ];
 
         $filter_label = ["soal" => "Soal"];

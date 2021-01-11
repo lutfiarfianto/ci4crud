@@ -102,7 +102,7 @@ class Tryout extends BaseController
         }
 
         $data['filter_info'] = implode("\n", $filter_info);
-        $data['sub_header'] = 'Subheader_tryout';
+        // $data['sub_header'] = 'Subheader_tryout';
 
         echo view('Member/Tryout/Index', $data);
 

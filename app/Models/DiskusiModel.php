@@ -13,7 +13,7 @@ class DiskusiModel extends BaseModel
     protected $returnType     = 'App\Entities\Diskusi';
     protected $useSoftDeletes = true;
 
-    protected $allowedFields = ["id","parent_id","judul_diskusi","comment","gambar_soal","rating_soal","user_id","publishing"];
+    protected $allowedFields = ["id","judul_diskusi","parent_id","tipe_diskusi","comment","gambar_soal","rating_soal","user_id","publishing"];
 
     protected $validationRules    = [];
     protected $validationMessages = [];

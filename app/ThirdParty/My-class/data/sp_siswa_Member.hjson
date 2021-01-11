@@ -1,0 +1,439 @@
+{
+    "app": {
+        "class_name": "Profil",
+        "table_name": "sp_siswa",
+        "title": "Profil",
+        "subdir": "Member",
+        "form": {
+            "layout": "horizontal",
+            "title": {
+                "new": "New Profil",
+                "edit": "Edit Profil",
+                "show": "View Profil"
+            }
+        },
+        "table": {
+            "paging": 10,
+            "title": "List of Profil",
+            "css": {
+                "table": "",
+                "thead": "thead-dark"
+            }
+        },
+        "server_side_validation": {
+            "nama_siswa": "required"
+        },
+        "upload": {
+            "mime_type": "^image",
+            "file_ext": "(jpg|jpeg|png)",
+            "media_path": "uploads"
+        },
+        "render": {
+            "controller": true,
+            "model": true,
+            "entity": true,
+            "view_index": 0,
+            "view_index_filter": 0,
+            "view_edit": true,
+            "view_show": true,
+            "route": true
+        }
+    },
+    "table": {
+        "id": {
+            "name": "id",
+            "type": "int",
+            "pk": true,
+            "table": {
+                "caption": "Id",
+                "show": 0,
+                "ordering": 0,
+                "filter": 1
+            },
+            "form": {
+                "label": "Id",
+                "show": true,
+                "ordering": 0,
+                "stub": "hidden"
+            },
+            "form_attr": {
+                "name": "id",
+                "class": "form-control",
+                "type": "hidden",
+                "placeholder": "Id",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Id"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "nama_siswa": {
+            "name": "nama_siswa",
+            "type": "varchar",
+            "pk": false,
+            "table": {
+                "caption": "Nama Siswa",
+                "show": 1,
+                "ordering": 1,
+                "filter": 1
+            },
+            "form": {
+                "label": "Nama Siswa",
+                "show": true,
+                "ordering": 1,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "nama_siswa",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Nama Siswa",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Nama Siswa"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "alamat_siswa": {
+            "name": "alamat_siswa",
+            "type": "varchar",
+            "pk": false,
+            "table": {
+                "caption": "Alamat Siswa",
+                "show": 1,
+                "ordering": 2,
+                "filter": 1
+            },
+            "form": {
+                "label": "Alamat Siswa",
+                "show": true,
+                "ordering": 2,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "alamat_siswa",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Alamat Siswa",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Alamat Siswa"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "kota_siswa": {
+            "name": "kota_siswa",
+            "type": "varchar",
+            "pk": false,
+            "table": {
+                "caption": "Kota Siswa",
+                "show": 1,
+                "ordering": 3,
+                "filter": 1
+            },
+            "form": {
+                "label": "Kota Siswa",
+                "show": true,
+                "ordering": 3,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "kota_siswa",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Kota Siswa",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Kota Siswa"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "fakultas_siswa": {
+            "name": "fakultas_siswa",
+            "type": "varchar",
+            "pk": false,
+            "table": {
+                "caption": "Fakultas Siswa",
+                "show": 1,
+                "ordering": 4,
+                "filter": 1
+            },
+            "form": {
+                "label": "Fakultas Siswa",
+                "show": true,
+                "ordering": 4,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "fakultas_siswa",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Fakultas Siswa",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Fakultas Siswa"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "jurusan_siswa": {
+            "name": "jurusan_siswa",
+            "type": "varchar",
+            "pk": false,
+            "table": {
+                "caption": "Jurusan Siswa",
+                "show": 1,
+                "ordering": 5,
+                "filter": 1
+            },
+            "form": {
+                "label": "Jurusan Siswa",
+                "show": true,
+                "ordering": 5,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "jurusan_siswa",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Jurusan Siswa",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Jurusan Siswa"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "angkatan_siswa": {
+            "name": "angkatan_siswa",
+            "type": "int",
+            "pk": false,
+            "table": {
+                "caption": "Angkatan Siswa",
+                "show": 1,
+                "ordering": 6,
+                "filter": 1
+            },
+            "form": {
+                "label": "Angkatan Siswa",
+                "show": true,
+                "ordering": 6,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "angkatan_siswa",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Angkatan Siswa",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Angkatan Siswa"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "ho_hp_siswa": {
+            "name": "ho_hp_siswa",
+            "type": "varchar",
+            "pk": false,
+            "table": {
+                "caption": "Ho Hp Siswa",
+                "show": 1,
+                "ordering": 7,
+                "filter": 1
+            },
+            "form": {
+                "label": "Ho Hp Siswa",
+                "show": true,
+                "ordering": 7,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "ho_hp_siswa",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Ho Hp Siswa",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Ho Hp Siswa"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "nama_orang_tua": {
+            "name": "nama_orang_tua",
+            "type": "varchar",
+            "pk": false,
+            "table": {
+                "caption": "Nama Orang Tua",
+                "show": 1,
+                "ordering": 8,
+                "filter": 1
+            },
+            "form": {
+                "label": "Nama Orang Tua",
+                "show": true,
+                "ordering": 8,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "nama_orang_tua",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Nama Orang Tua",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Nama Orang Tua"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "alamat_orang_tua": {
+            "name": "alamat_orang_tua",
+            "type": "varchar",
+            "pk": false,
+            "table": {
+                "caption": "Alamat Orang Tua",
+                "show": 1,
+                "ordering": 9,
+                "filter": 1
+            },
+            "form": {
+                "label": "Alamat Orang Tua",
+                "show": true,
+                "ordering": 9,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "alamat_orang_tua",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "Alamat Orang Tua",
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select Alamat Orang Tua"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        },
+        "no_hp_orang_tua": {
+            "name": "no_hp_orang_tua",
+            "type": "varchar",
+            "pk": false,
+            "table": {
+                "caption": "No Hp Orang Tua",
+                "show": 1,
+                "ordering": 10,
+                "filter": 1
+            },
+            "form": {
+                "label": "No Hp Orang Tua",
+                "show": true,
+                "ordering": 10,
+                "stub": "input"
+            },
+            "form_attr": {
+                "name": "no_hp_orang_tua",
+                "class": "form-control",
+                "type": "text",
+                "placeholder": "No Hp Orang Tua",
+                "required": true
+            },
+            "data_source": {
+                "type": "",
+                "array": {
+                    "*": "Select No Hp Orang Tua"
+                },
+                "db": {
+                    "ref_model": "",
+                    "key_fields": "",
+                    "value_fields": "",
+                    "default": "- Select One -"
+                }
+            }
+        }
+    }
+}

@@ -43,7 +43,7 @@ class Materi extends BaseController
         };
 
         if ($table_filters->judul_materi) {
-            $this->materiModel->where('judul_materi', $table_filters->judul_materi);
+            $this->materiModel->like('judul_materi', $table_filters->judul_materi);
         };
 
         if ($table_filters->mata_kuliah_id) {
@@ -53,7 +53,7 @@ class Materi extends BaseController
         $this->materiModel->join('sp_mata_kuliah', 'sp_materi.mata_kuliah_id=sp_mata_kuliah.id', 'left');
 
         $this->materiModel->orderBy('sp_materi.id desc');
-        $rows = $this->materiModel->paginate(10);
+        $rows = $this->materiModel->paginate(20);
 
         $data = [
             'rows' => $rows,
@@ -61,7 +61,7 @@ class Materi extends BaseController
             'breadcrumb' => [
                 'title' => 'List of Materi',
             ],
-            'per_page' => 10,
+            'per_page' => 20,
             'table_filter' => $table_filters,
         ];
 
@@ -113,13 +113,38 @@ class Materi extends BaseController
 
         try {
 
-            $materi = $this->materiModel->find($id);
+            $materi = $this->materiModel
+                ->join('sp_mata_kuliah', 'sp_materi.mata_kuliah_id=sp_mata_kuliah.id', 'left')
+                ->find($id);
+
+            $this->materiModel
+                ->select('*,sp_materi.id')
+                ->where('mata_kuliah_id', $materi->mata_kuliah_id)
+                ->where('sp_materi.id !=', $id)
+                ->join('sp_mata_kuliah', 'sp_materi.mata_kuliah_id=sp_mata_kuliah.id', 'left')
+                ->orderBy('sp_materi.id', 'desc');
+
+            $materi_related = $this->materiModel->findAll();
+
+            $diskusiModel = new \App\Models\DiskusiModel();
+
+            $diskusi = $diskusiModel->where('tipe_diskusi', 'materi')
+                ->where('post_id', $id)
+                ->join('users', 'users.id=sp_diskusi.user_id', 'left')
+                ->orderBy('sp_diskusi.id', 'desc')
+                ->findAll();
+
+            $url_video = preg_replace('/\/view\?usp=sharing$/', '/preview', $materi->url_video);
 
             $data = [
                 'materi' => $materi,
+                'materi_related' => $materi_related,
+                'diskusi' => $diskusi,
+                'url_video' => $url_video,
                 'breadcrumb' => [
                     'title' => 'View Materi',
                 ],
+                'addon_js'  => $this->apply_asset(['mbr-additional'],'js'),
             ];
 
             echo view('Member/Materi/Show', $data);

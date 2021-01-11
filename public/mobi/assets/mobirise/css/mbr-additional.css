@@ -2466,3 +2466,124 @@ a {
   height: auto;
 }
 
+/**
+ * iframe
+ */
+
+ .iframe-embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  border: 0;
+}
+.iframe-embed-wrapper {
+  position: relative;
+  display: block;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.iframe-embed-responsive-16by9 {
+  padding-bottom: 56.25%;
+}
+
+.materi-txt {
+  color: #000;
+}
+
+label.label-choice {
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: block;
+}
+
+/* > soal */
+.text-soal {
+  margin-left: 20px ;
+  text-indent: -20px;
+}
+
+.group-soal {
+  padding:10px;
+  border:1px solid #c7c7c8;
+  border-radius: 15px;
+  background-color: white;
+}
+
+
+
+
+/* >> special select */
+
+.form-check.custom-group {
+  padding: 0;
+}
+
+.form-check.custom-group input[type="radio"] {
+  opacity:0;
+  position: absolute;
+}
+
+.form-check.custom-group input[type="radio"] ~ .custom-text {
+  margin: 5px 0;
+  margin-left: 20px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border-color: #7a7a7a;
+  border-width:1px;
+  border-style: solid;
+}
+
+.form-check.custom-group input[type="radio"]:checked ~ .custom-text {
+  border-color: green;
+  background-color: lightgreen;
+}
+
+
+@media screen and (max-width:756px) {
+
+  .video-fix {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    height: auto;
+    width: 100%;
+    padding: 15px 15px;
+    z-index: 1000;
+    background: white;
+  }
+
+  .video-fix + .after-sticky {
+    padding-top: 220px;
+  }
+
+  .video-related {
+    position: relative;
+    /* top: 130px; */
+  }
+
+  /* The sticky class is added to the header with JS when it reaches its scroll position */
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+  }
+
+  /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+  .sticky + .content {
+    padding-top: 102px;
+  }
+
+
+
+}
+
+
+
+
+

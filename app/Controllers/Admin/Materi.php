@@ -17,14 +17,13 @@ class Materi extends BaseController
     /*
     public function session($id)
     {
-    $parent_id = id_decode($id);
-    session()->set('parent_id',$parent_id);
-    return redirect()->to('/path/to/parent');
+        $parent_id = id_decode($id);
+        session()->set('parent_id',$parent_id);
+        return redirect()->to('/path/to/parent');
     }
-     */
+    */
 
-    public function filter()
-    {
+    public function filter(){
 
         $this->index();
 
@@ -34,78 +33,83 @@ class Materi extends BaseController
     {
 
         // ** if you want to build query manually, refer to CI4 query builder **
-        $this->materiModel->select('*, sp_materi.id ', FALSE );
+        // $this->materiModel->select('*, sp_materi.id ', FALSE );
 
-        $table_filters = (object) ["judul_materi" => null, "mata_kuliah_id" => null, "semester" => null];
+        $table_filters = (object) ["judul_materi"=>null,"mata_kuliah_id"=>null,"semester"=>null];
 
-        foreach ($table_filters as $field => &$value) {
+        foreach($table_filters as $field =>& $value){
             $value = refine_var($this->request->getGet($field));
         };
 
-        if ($table_filters->judul_materi) {
-            $this->materiModel->where('judul_materi', $table_filters->judul_materi);
+                if($table_filters->judul_materi){
+            $this->materiModel->where('judul_materi',$table_filters->judul_materi);
         };
 
-        if ($table_filters->mata_kuliah_id) {
-            $this->materiModel->where('mata_kuliah_id', $table_filters->mata_kuliah_id);
+        if($table_filters->mata_kuliah_id){
+            $this->materiModel->where('mata_kuliah_id',$table_filters->mata_kuliah_id);
         };
 
-        if ($table_filters->semester) {
-            $this->materiModel->where('semester', $table_filters->semester);
+        if($table_filters->semester){
+            $this->materiModel->where('semester',$table_filters->semester);
         };
 
-        $this->materiModel->join('sp_mata_kuliah','sp_mata_kuliah.id=sp_materi.mata_kuliah_id','left');
+
         $this->materiModel->orderBy('sp_materi.id desc');
         $rows = $this->materiModel->paginate(10);
 
         $data = [
-            'rows' => $rows,
-            'pager' => $this->materiModel->pager,
+            'rows'       => $rows,
+            'pager'      => $this->materiModel->pager,
             'breadcrumb' => [
                 'title' => 'List of Materi',
             ],
-            'per_page' => 10,
+            'per_page'    => 10,
             'table_filter' => $table_filters,
         ];
 
-        // multi option for mata_kuliah_id
-        $matakuliahModel = new \App\Models\matakuliahModel();
-        $matakuliahModel->orderBy('nama_mata_kuliah asc');
-        $rows = $matakuliahModel->findAll();
+        		// multi option for mata_kuliah_id
+		$matakuliahModel = new \App\Models\matakuliahModel();
+		$matakuliahModel->orderBy('nama_mata_kuliah asc');
+		$rows = $matakuliahModel->findAll();
 
-        $options_mata_kuliah_id = [
-            '' => '- Select One -',
-        ];
-        foreach ($rows as $k => $row) {
-            $options_mata_kuliah_id[$row->id] = $row->nama_mata_kuliah;
-        }
+		$options_mata_kuliah_id = [
+			'' => '- Select One -',
+		];
+		foreach($rows as $k=>$row){
+			$options_mata_kuliah_id[$row->id] = $row->nama_mata_kuliah;
+		}
 
-        $data['options_mata_kuliah_id'] = $options_mata_kuliah_id;
+		$data['options_mata_kuliah_id'] = $options_mata_kuliah_id;
 
-        $filter_label = ["judul_materi" => "Judul Materi", "mata_kuliah_id" => "Mata Kuliah", "semester" => "Semester"];
+
+
+
+        $filter_label = ["judul_materi"=>"Judul Materi","mata_kuliah_id"=>"Mata Kuliah","semester"=>"Semester"];
         $filter_info = [];
 
         $table_filters_txt = (object) [];
 
-        // render db-txt from table filter mata_kuliah_id
-        if ($table_filters->mata_kuliah_id) {
-            $matakuliah = $matakuliahModel->find($table_filters->mata_kuliah_id);
-            if (isset($matakuliah->nama_mata_kuliah)) {
-                $table_filters_txt->id = $matakuliah->nama_mata_kuliah;
-            }
+              // render db-txt from table filter mata_kuliah_id
+      if($table_filters->mata_kuliah_id){
+        $matakuliah = $matakuliahModel->find( $table_filters->mata_kuliah_id );
+        if(isset($matakuliah->nama_mata_kuliah))
+            $table_filters_txt->id = $matakuliah->nama_mata_kuliah;
+      }
 
-        }
 
-        foreach ($filter_label as $fld => $label) {
-            if (!$table_filters->$fld) {
+        
+        foreach ($filter_label as $fld => $label) 
+        {
+            if (!$table_filters->$fld) 
                 continue;
-            }
-
-            $filter_info[$fld] = '<span class="badge badge-primary">' . $label . ' = ' . (isset($table_filters_txt->$fld) ? $table_filters_txt->$fld : $table_filters->$fld) . '</span>';
-
+            
+            $filter_info[$fld] = '<span class="badge badge-primary">' . $label . ' = ' . (isset($table_filters_txt->$fld)?$table_filters_txt->$fld:$table_filters->$fld) . '</span>';
+            
         }
+        
 
-        $data['filter_info'] = implode("\n", $filter_info);
+        $data['filter_info'] = implode("\n", $filter_info );
+
 
         echo view('Admin/Materi/Index', $data);
 
@@ -133,8 +137,7 @@ class Materi extends BaseController
 
     }
 
-    public function edit($id = null)
-    {
+    public function edit($id = null){
 
         try {
 
@@ -155,21 +158,26 @@ class Materi extends BaseController
                 'breadcrumb' => [
                     'title' => 'Edit Materi',
                 ],
+                'addon_css' => $this->apply_asset(['magnific-popup'],'css'),
+                'addon_js'  => $this->apply_asset(['magnific-popup'],'js'),
             ];
 
-            // multi option for mata_kuliah_id
-            $matakuliahModel = new \App\Models\matakuliahModel();
-            $matakuliahModel->orderBy('nama_mata_kuliah asc');
-            $rows = $matakuliahModel->findAll();
+            		// multi option for mata_kuliah_id
+		$matakuliahModel = new \App\Models\matakuliahModel();
+		$matakuliahModel->orderBy('nama_mata_kuliah asc');
+		$rows = $matakuliahModel->findAll();
 
-            $options_mata_kuliah_id = [
-                '' => '- Select One -',
-            ];
-            foreach ($rows as $k => $row) {
-                $options_mata_kuliah_id[$row->id] = $row->nama_mata_kuliah;
-            }
+		$options_mata_kuliah_id = [
+			'' => '- Select One -',
+		];
+		foreach($rows as $k=>$row){
+			$options_mata_kuliah_id[$row->id] = $row->nama_mata_kuliah;
+		}
 
-            $data['options_mata_kuliah_id'] = $options_mata_kuliah_id;
+		$data['options_mata_kuliah_id'] = $options_mata_kuliah_id;
+
+
+
 
             if (!$this->validate([])) {
                 $data['validation'] = $this->validator;
@@ -196,19 +204,21 @@ class Materi extends BaseController
                 ],
             ];
 
-            // multi option for mata_kuliah_id
-            $matakuliahModel = new \App\Models\matakuliahModel();
-            $matakuliahModel->orderBy('nama_mata_kuliah asc');
-            $rows = $matakuliahModel->findAll();
+            		// multi option for mata_kuliah_id
+		$matakuliahModel = new \App\Models\matakuliahModel();
+		$matakuliahModel->orderBy('nama_mata_kuliah asc');
+		$rows = $matakuliahModel->findAll();
 
-            $options_mata_kuliah_id = [
-                '' => '- Select One -',
-            ];
-            foreach ($rows as $k => $row) {
-                $options_mata_kuliah_id[$row->id] = $row->nama_mata_kuliah;
-            }
+		$options_mata_kuliah_id = [
+			'' => '- Select One -',
+		];
+		foreach($rows as $k=>$row){
+			$options_mata_kuliah_id[$row->id] = $row->nama_mata_kuliah;
+		}
 
-            $data['options_mata_kuliah_id'] = $options_mata_kuliah_id;
+		$data['options_mata_kuliah_id'] = $options_mata_kuliah_id;
+
+
 
             echo view('Admin/Materi/Edit', $data);
 
@@ -224,7 +234,7 @@ class Materi extends BaseController
         $request = service('request');
 
         // setting rules
-        $rules = ["judul_materi" => "required"];
+        $rules = ["judul_materi"=>"required"];
 
         if (!$this->validate($rules)) {
 
@@ -235,30 +245,30 @@ class Materi extends BaseController
         // post request
         $post_data = $request->getPost();
 
-        /* upload handler */
+                /* upload handler */
         $files = $request->getFiles();
 
         foreach ($files as $file_field => $file) {
-
-            if (!preg_match('/(image|pdf)/i', $file->getClientMimeType())) {
+            
+            if (!preg_match('/(image|pdf)/i',$file->getClientMimeType()))
                 continue;
-            }
 
-            if (!preg_math('/(jpg|jpeg|png|pdf)/i', $file->getClientExtension())) {
+            if(!preg_match('/(jpg|jpeg|png|pdf)/i',$file->getClientExtension()))
                 continue;
-            }
 
             $date_bridge = id_encode(date('Ym'));
 
-            if ($file->isValid() && !$file->hasMoved()) {
+            if($file->isValid() && !$file->hasMoved()){
                 $new_name = $file->getRandomName();
-                mk_path(WRITEPATH . 'uploads', $date_bridge);
-                $file->move(WRITEPATH . 'uploads/' . $date_bridge, $new_name);
+                mk_path(WRITEPATH.'uploads', $date_bridge);
+                $file->move(WRITEPATH.'uploads/' . $date_bridge, $new_name);
             }
 
-            $post_data[$file_field] = $date_bridge . '/' . $new_name;
+            $post_data[$file_field] = $date_bridge.'/'.$new_name;
 
         }
+
+
 
         $materi_store = new \App\Entities\Materi($post_data);
 
@@ -289,3 +299,4 @@ class Materi extends BaseController
 
 /* End of file Materi.php */
 /* Location: ./app/Controllers/Admin/Materi.php */
+

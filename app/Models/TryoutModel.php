@@ -13,7 +13,7 @@ class TryoutModel extends BaseModel
     protected $returnType     = 'App\Entities\Tryout';
     protected $useSoftDeletes = true;
 
-    protected $allowedFields = ["id","judul_tryout","waktu_tryout","semester","mata_kuliah_id","status_tryout","tipe_tryout"];
+    protected $allowedFields = ["id","judul_tryout","waktu_tryout","semester","mata_kuliah_id","status_tryout","tipe_tryout","url_thumbnail"];
 
     protected $validationRules    = [];
     protected $validationMessages = [];

@@ -25,6 +25,8 @@
   <link rel="stylesheet" href="<?= base_url('mobi/assets/mobirise/css/mbr-additional.css') ?>">
   <link rel="preload" as="style" href="<?= base_url('mobi/assets/mobirise/css/mbr-additional.css') ?>">
 
+  <?= isset($addon_css)?$addon_css:null ?>
+
 </head>
 
 <body>
@@ -52,6 +54,8 @@
   <script src="<?= base_url('mobi/assets/dropdown/js/navbar-dropdown.js') ?>"></script>
   <script src="<?= base_url('mobi/assets/touchswipe/jquery.touch-swipe.min.js') ?>"></script>
   <script src="<?= base_url('mobi/assets/theme/js/script.js') ?>"></script>
+
+  <?= isset($addon_js)?$addon_js:null ?>
 
 
 </body>

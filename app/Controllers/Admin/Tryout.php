@@ -46,7 +46,7 @@ class Tryout extends BaseController
 
             $tryout = $this->tryoutModel
                 ->select('*, nama_mata_kuliah as mata_kuliah_id, sp_judul_tryout.id')
-                ->join('sp_mata_kuliah','sp_mata_kuliah.id=sp_judul_tryout.mata_kuliah_id','left')
+                ->join('sp_mata_kuliah', 'sp_mata_kuliah.id=sp_judul_tryout.mata_kuliah_id', 'left')
                 ->find($id);
 
             $data = [
@@ -64,7 +64,8 @@ class Tryout extends BaseController
 
     }
 
-    public function edit($id = null){
+    public function edit($id = null)
+    {
 
         try {
 
@@ -85,34 +86,29 @@ class Tryout extends BaseController
                 'breadcrumb' => [
                     'title' => 'Edit Tryout',
                 ],
+                'addon_css' => $this->apply_asset(['magnific-popup'],'css'),
+                'addon_js'  => $this->apply_asset(['magnific-popup'],'js'),
             ];
 
-            		// multi option for mata_kuliah_id
-		$matakuliahModel = new \App\Models\matakuliahModel();
-		$matakuliahModel->orderBy('nama_mata_kuliah asc');
-		$rows = $matakuliahModel->findAll();
+            // multi option for mata_kuliah_id
+            $matakuliahModel = new \App\Models\matakuliahModel();
+            $matakuliahModel->orderBy('nama_mata_kuliah asc');
+            $rows = $matakuliahModel->findAll();
 
-		$options_mata_kuliah_id = [];
-		foreach($rows as $k=>$row){
-			$options_mata_kuliah_id[$row->id] = $row->nama_mata_kuliah;
-		}
+            $options_mata_kuliah_id = [];
+            foreach ($rows as $k => $row) {
+                $options_mata_kuliah_id[$row->id] = $row->nama_mata_kuliah;
+            }
 
-		$data['options_mata_kuliah_id'] = $options_mata_kuliah_id;
+            $data['options_mata_kuliah_id'] = $options_mata_kuliah_id;
 
+            // multi option for status_tryout
+            $options_status_tryout = ["0" => "Draft", "2" => "Arsip", "1" => "Publikasi"];
+            $data['options_status_tryout'] = $options_status_tryout;
 
-
-		// multi option for status_tryout
-		$options_status_tryout = ["0"=>"Draft","2"=>"Arsip","1"=>"Publikasi"];
-		$data['options_status_tryout'] = $options_status_tryout;
-
-
-
-		// multi option for tipe_tryout
-		$options_tipe_tryout = ["ganda"=>"Pilihan Ganda","esai"=>"Esay"];
-		$data['options_tipe_tryout'] = $options_tipe_tryout;
-
-
-
+            // multi option for tipe_tryout
+            $options_tipe_tryout = ["ganda" => "Pilihan Ganda", "esai" => "Esay"];
+            $data['options_tipe_tryout'] = $options_tipe_tryout;
 
             if (!$this->validate([])) {
                 $data['validation'] = $this->validator;
@@ -139,31 +135,25 @@ class Tryout extends BaseController
                 ],
             ];
 
-            		// multi option for mata_kuliah_id
-		$matakuliahModel = new \App\Models\matakuliahModel();
-		$matakuliahModel->orderBy('nama_mata_kuliah asc');
-		$rows = $matakuliahModel->findAll();
+            // multi option for mata_kuliah_id
+            $matakuliahModel = new \App\Models\matakuliahModel();
+            $matakuliahModel->orderBy('nama_mata_kuliah asc');
+            $rows = $matakuliahModel->findAll();
 
-		$options_mata_kuliah_id = [];
-		foreach($rows as $k=>$row){
-			$options_mata_kuliah_id[$row->id] = $row->nama_mata_kuliah;
-		}
+            $options_mata_kuliah_id = [];
+            foreach ($rows as $k => $row) {
+                $options_mata_kuliah_id[$row->id] = $row->nama_mata_kuliah;
+            }
 
-		$data['options_mata_kuliah_id'] = $options_mata_kuliah_id;
+            $data['options_mata_kuliah_id'] = $options_mata_kuliah_id;
 
+            // multi option for status_tryout
+            $options_status_tryout = ["0" => "Draft", "2" => "Arsip", "1" => "Publikasi"];
+            $data['options_status_tryout'] = $options_status_tryout;
 
-
-		// multi option for status_tryout
-		$options_status_tryout = ["0"=>"Draft","2"=>"Arsip","1"=>"Publikasi"];
-		$data['options_status_tryout'] = $options_status_tryout;
-
-
-
-		// multi option for tipe_tryout
-		$options_tipe_tryout = ["ganda"=>"Pilihan Ganda","esai"=>"Esay"];
-		$data['options_tipe_tryout'] = $options_tipe_tryout;
-
-
+            // multi option for tipe_tryout
+            $options_tipe_tryout = ["ganda" => "Pilihan Ganda", "esai" => "Esay"];
+            $data['options_tipe_tryout'] = $options_tipe_tryout;
 
             echo view('Admin/Tryout/Edit', $data);
 
@@ -179,7 +169,7 @@ class Tryout extends BaseController
         $request = service('request');
 
         // setting rules
-        $rules = ["judul_tryout"=>"required"];
+        $rules = ["judul_tryout" => "required"];
 
         if (!$this->validate($rules)) {
 
@@ -189,6 +179,31 @@ class Tryout extends BaseController
 
         // post request
         $post_data = $request->getPost();
+
+        /* upload handler */
+        $files = $request->getFiles();
+
+        foreach ($files as $file_field => $file) {
+
+            if (!preg_match('/(image)/i', $file->getClientMimeType())) {
+                continue;
+            }
+
+            if (!preg_match('/(jpg|jpeg|png)/i', $file->getClientExtension())) {
+                continue;
+            }
+
+            $date_bridge = id_encode(date('Ym'));
+
+            if ($file->isValid() && !$file->hasMoved()) {
+                $new_name = $file->getRandomName();
+                mk_path(WRITEPATH . 'uploads', $date_bridge);
+                $file->move(WRITEPATH . 'uploads/' . $date_bridge, $new_name);
+            }
+
+            $post_data[$file_field] = $date_bridge . '/' . $new_name;
+
+        }
 
         $tryout_store = new \App\Entities\Tryout($post_data);
 
@@ -219,4 +234,3 @@ class Tryout extends BaseController
 
 /* End of file Tryout.php */
 /* Location: ./app/Controllers/Admin/Tryout.php */
-

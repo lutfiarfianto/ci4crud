@@ -3,7 +3,9 @@
     <?= form_upload({attributes}) ?>
     <label class="custom-file-label" for="{fld}" >Choose file</label>
   </div>
+  {noparse}<?php if{/noparse}( ${model}->{fld} ) : ?>
   <div class="input-group-append">
-    <span class="input-group-text" data-src="<?= ${model}->{fld} ?>" >View</span>
+    <a class="input-group-text image-popup-vertical-fit" href="<?= base_url('uploads/'.${model}->{fld}) ?>">View</a>
   </div>
+  {noparse}<?php endif; ?>{/noparse}
 </div>

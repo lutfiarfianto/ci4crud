@@ -6,7 +6,7 @@ class Asset extends BaseConfig
 {
     public $css = [
 
-    	'magnific-popup' => 'assets/libs/magnific-popup/dist/magnific-popup.css',
+			'magnific-popup' => 'assets/libs/magnific-popup/dist/magnific-popup.css',
 
     ];
 
@@ -18,7 +18,10 @@ class Asset extends BaseConfig
     		'assets/libs/magnific-popup/meg.init.js',
     	],
 
-    ];
+			'mbr-additional' => 'mobi/assets/mobirise/js/mbr-additional.js',
+
+
+		];
 
 }
 

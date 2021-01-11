@@ -7,7 +7,7 @@
             {noparse}if {/noparse}(!preg_match('/{mime_type}/i',$file->getClientMimeType()))
                 continue;
 
-            if(!preg_math('/{file_ext}/i',$file->getClientExtension()))
+            if(!preg_match('/{file_ext}/i',$file->getClientExtension()))
                 continue;
 
             $date_bridge = id_encode(date('Ym'));

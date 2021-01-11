@@ -43,7 +43,7 @@ class Soaltryout extends BaseController
     {
 
         // ** if you want to build query manually, refer to CI4 query builder **
-        // $this->soaltryoutModel->select('*, sp_soal_tryout.id ', FALSE );
+        $this->soaltryoutModel->select('*, sp_soal_tryout.id ', FALSE );
 
         $table_filters = (object) ["soal" => null];
 
@@ -59,7 +59,7 @@ class Soaltryout extends BaseController
 
         $this->soaltryoutModel->where('judul_tryout_id',session()->get('tryout_id'));
 
-        $this->soaltryoutModel->orderBy('sp_soal_tryout.id desc');
+        $this->soaltryoutModel->orderBy('sp_soal_tryout.id asc');
         $rows = $this->soaltryoutModel->paginate(10);
 
         $data = [

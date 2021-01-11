@@ -24,7 +24,7 @@
         <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="<?= site_url('/Member/Tryout') ?>">
             Tryout</a></li>
         <li class="nav-item"><a class="nav-link link text-black text-primary display-4"
-            href="<?= site_url('/Member/Diskusi') ?>">Diskusi<br></a>
+            href="<?= site_url('/Member/Hasiltryout') ?>">Hasil Tryout<br></a>
         </li>
         <li class="nav-item"><a class="nav-link link text-black text-primary display-4"
             href="<?= site_url('/Member/Profil') ?>">Profil<br></a></li>

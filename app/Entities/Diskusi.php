@@ -7,6 +7,7 @@ use \CodeIgniter\Entity;
 class Diskusi extends Entity
 {
 
+    
 
 }
 

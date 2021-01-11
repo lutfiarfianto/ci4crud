@@ -127,6 +127,8 @@ class {class_name} extends BaseController
                 'breadcrumb' => [
                     'title' => '{form_edit_title}',
                 ],
+                'addon_css' => $this->apply_asset(['magnific-popup'],'css'),
+                'addon_js'  => $this->apply_asset(['magnific-popup'],'js'),
             ];
 
             {edit_data_ref}

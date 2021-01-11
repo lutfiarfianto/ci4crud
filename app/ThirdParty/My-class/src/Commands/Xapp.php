@@ -239,7 +239,9 @@ class Xapp extends BaseCommand
         
 
         foreach ($form_config as $fld => $form_meta) {
-            $form_attr->$fld->value = '$'.$model.'->'.$fld;
+            if($form_meta->stub!='upload')
+                $form_attr->$fld->value = '$'.$model.'->'.$fld;
+                
             if(in_array($form_meta->stub,['dropdown'])){
                 $form_attr->$fld->options = '$options_'.$fld;
                 $form_attr->$fld->selected = $form_attr->$fld->value;

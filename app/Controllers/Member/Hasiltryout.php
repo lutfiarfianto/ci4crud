@@ -53,6 +53,7 @@ class Hasiltryout extends BaseController
         $this->hasiltryoutModel->join('sp_judul_tryout','sp_judul_tryout.id=sp_lembar_tryout.judul_tryout_id','left');
 
         $this->hasiltryoutModel->where('siswa_id', $siswa_id);
+        $this->hasiltryoutModel->where("skor_tryout!='' ");
 
 
         $this->hasiltryoutModel->orderBy('sp_lembar_tryout.id desc');

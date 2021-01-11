@@ -22,6 +22,7 @@ class Filters extends BaseConfig
 		'lembartryoutAdmin' => \App\Filters\LembartryoutsessionFilter::class,
 
 		'tryoutMember'      => \App\Filters\TryoutmembersessionFilter::class,
+		'hasilTryoutMember' => \App\Filters\HasiltryoutmembersessionFilter::class,
 
 
 
@@ -54,5 +55,6 @@ class Filters extends BaseConfig
     'siswaAdmin'        => ['before' => ['Admin/Lembartryout/*','Admin/Lembartryout']],
     'lembartryoutAdmin' => ['before' => ['Admin/Jawabansoaltryout/*','Admin/Jawabansoaltryout']],
     'tryoutMember'      => ['before' => ['Member/Soaltryout/*','Member/Soaltryout']],
+    'hasilTryoutMember' => ['before' => ['Member/Jawabantryout/*','Member/Jawabantryout']],
 	];
 }
